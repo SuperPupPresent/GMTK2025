@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public InputActionAsset playerInputActions;
+
+    public Animator animator;
     
     public Rigidbody2D PlayerRb;
     public Rigidbody2D ParentRb;
@@ -55,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
         moveAmt = moveButton.ReadValue<Vector2>();
 
         movement(moveAmt);
+        animator.SetBool("isRunning", moveAmt != new Vector2(0, 0));
         determineRotation();
 
         if (jumpButton.WasPressedThisFrame())
@@ -122,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = true;
             jumpSpeed = -maxHeight;
+            animator.SetBool("isJumping", true);
         }
     }
 
@@ -132,9 +136,18 @@ public class PlayerMovement : MonoBehaviour
             // Debug.Log("SHEVA");
             PlayerRb.transform.localPosition = new Vector3(0, (Mathf.Pow(maxHeight, 2f) - Mathf.Pow(jumpSpeed, 2f)), 0);
             jumpSpeed += travelSpeed;
+            Debug.Log(jumpSpeed);
+
+            if (jumpSpeed >= 0)
+            {
+                animator.SetBool("isJumping", false);
+                animator.SetBool("isFalling", true);
+                //Debug.Log("POW");
+            }
 
             if (PlayerRb.transform.localPosition.y <= -0.1)
             {
+                animator.SetBool("isFalling", false);
                 isJumping = false;
                 jumpSpeed = 0;
                 PlayerRb.transform.localPosition = new Vector3(0, 0, 0);
