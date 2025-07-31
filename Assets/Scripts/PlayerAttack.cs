@@ -17,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
     private InputAction moveButton;
 
     private bool isAttacking = false; // Flag to prevent multiple attacks at once
+    private bool bottleThrown = false; // Flag to check if the bottle has been thrown
 
     private void OnEnable()
     {
@@ -59,6 +60,21 @@ public class PlayerAttack : MonoBehaviour
         isAttacking = false; // Reset attacking flag
     }
 
+    private IEnumerator PerformBottleThrow()
+    {
+        bottleThrown = true; // Set the flag to true to prevent multiple throws
+        bottleHitbox.SetActive(true); // Activate the bottle hitbox
+
+        Vector3 throwdirection = new Vector3(moveButton.ReadValue<Vector2>().x, 0, moveButton.ReadValue<Vector2>().y).normalized;
+        GameObject bottle = Instantiate(bottleHitbox, bottleHitbox.transform.position, Quaternion.identity);
+        BottleThrow bottleScript = bottle.GetComponent<BottleThrow>();
+        bottleScript.Launch(throwdirection, this.transform);
+
+        yield return new WaitForSeconds(1.3f); // Wait for a short duration before resetting
+        bottleThrown = false; // Reset the flag after instantiation
+        bottleHitbox.SetActive(false); // Deactivate the bottle hitbox after instantiation
+    }
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -88,15 +104,10 @@ public class PlayerAttack : MonoBehaviour
         }
 
         // Check for special attack inputs
-        if (specialAttack.WasPressedThisFrame() && moveButton.ReadValue<Vector2>() != Vector2.zero) //special + movement
+        if (specialAttack.WasPressedThisFrame() && (moveButton.ReadValue<Vector2>() != Vector2.zero) && !bottleThrown) //special + movement + bottle not thrown
         {
-            bottleHitbox.SetActive(true); // Activate the bottle hitbox
             Debug.Log("Special Attack Bottle Throw Triggered");
-            Vector3 throwdirection = new Vector3(moveButton.ReadValue<Vector2>().x, 0, moveButton.ReadValue<Vector2>().y).normalized;
-            GameObject bottle = Instantiate(bottleHitbox, bottleHitbox.transform.position, Quaternion.identity);
-            BottleThrow bottleScript = bottle.GetComponent<BottleThrow>();
-            bottleScript.Launch(throwdirection, this.transform); 
-            bottleHitbox.SetActive(false); // Deactivate the bottle hitbox after instantiation
+            StartCoroutine(PerformBottleThrow());
         }
         if(specialAttack.WasPressedThisFrame() && moveButton.ReadValue<Vector2>() == Vector2.zero) //special + no movement
         {

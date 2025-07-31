@@ -416,8 +416,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5, y: 1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6301895493636505214}
   m_Father: {fileID: 2715385090703226634}
@@ -798,6 +798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInputActions: {fileID: -944628639613478452, guid: 9e6764fc689a6624c90858b9de98b37a, type: 3}
+  animator: {fileID: 0}
   PlayerRb: {fileID: 2768465855603702319}
   ParentRb: {fileID: 0}
   cameraObject: {fileID: 0}
