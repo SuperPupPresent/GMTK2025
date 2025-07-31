@@ -9,6 +9,8 @@ public class PlayerAttack : MonoBehaviour
     public GameObject heavyHitbox; // Reference to the heavy attack hitbox
     public GameObject bottleHitbox; // Reference to the bottle hitbox for special attacks
 
+    private GameManager gameManager; // Reference to the GameManager for health and mana management
+
     private InputAction lightAttack;
     private InputAction heavyAttack;
     private InputAction specialAttack;
@@ -18,6 +20,8 @@ public class PlayerAttack : MonoBehaviour
 
     private bool isAttacking = false; // Flag to prevent multiple attacks at once
     private bool bottleThrown = false; // Flag to check if the bottle has been thrown
+
+    private float bottleThrowManaCost = 10f; // Mana cost for throwing a bottle
 
     private void OnEnable()
     {
@@ -62,6 +66,8 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator PerformBottleThrow()
     {
+        gameManager.currentMana -= bottleThrowManaCost; // Deduct mana cost for throwing a bottle
+
         bottleThrown = true; // Set the flag to true to prevent multiple throws
         bottleHitbox.SetActive(true); // Activate the bottle hitbox
 
@@ -70,7 +76,7 @@ public class PlayerAttack : MonoBehaviour
         BottleThrow bottleScript = bottle.GetComponent<BottleThrow>();
         bottleScript.Launch(throwdirection, this.transform);
 
-        yield return new WaitForSeconds(1.3f); // Wait for a short duration before resetting
+        yield return new WaitForSeconds(1.1f); // Wait for a short duration before resetting
         bottleThrown = false; // Reset the flag after instantiation
         bottleHitbox.SetActive(false); // Deactivate the bottle hitbox after instantiation
     }
@@ -83,6 +89,8 @@ public class PlayerAttack : MonoBehaviour
         lightHitbox.SetActive(false); // Ensure the hitbox is inactive at start
         heavyHitbox.SetActive(false); // Ensure the heavy hitbox is inactive at start
         bottleHitbox.SetActive(false); // Ensure the bottle hitbox is inactive at start
+
+        gameManager = FindFirstObjectByType<GameManager>(); // Find the GameManager in the scene
 
     }
 
@@ -104,7 +112,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
         // Check for special attack inputs
-        if (specialAttack.WasPressedThisFrame() && (moveButton.ReadValue<Vector2>() != Vector2.zero) && !bottleThrown) //special + movement + bottle not thrown
+        if (specialAttack.WasPressedThisFrame() && (moveButton.ReadValue<Vector2>() != Vector2.zero) && !bottleThrown && gameManager.currentMana >= bottleThrowManaCost) //special + movement + bottle not thrown + enough mana
         {
             Debug.Log("Special Attack Bottle Throw Triggered");
             StartCoroutine(PerformBottleThrow());
