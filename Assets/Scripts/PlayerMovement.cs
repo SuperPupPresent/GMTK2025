@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveAmt;
 
     [SerializeField] int moveSpeed = 5;
+    [SerializeField] float travelSpeed = .5f;
+    [SerializeField] float maxHeight = 5f;
 
     private bool facingRight = true;
     private bool isJumping = false;
@@ -44,38 +46,18 @@ public class PlayerMovement : MonoBehaviour
     {
         moveAmt = moveButton.ReadValue<Vector2>();
 
-        movement(false, moveAmt);
+        movement(moveAmt);
         determineRotation();
 
         if (jumpButton.WasPressedThisFrame())
         {
-            
-            //float targetHeight = PlayerRb.transform.position.y + 1;
-            if (!isJumping)
-            {
-                isJumping = true;
-                jumpSpeed = 10;
-            }
-
+            initiateJump();
         }
 
-        if (isJumping)
-        {
-           // Debug.Log("SHEVA");
-            PlayerRb.linearVelocityY = jumpSpeed;
-            jumpSpeed -= .06f;
-
-            if (PlayerRb.transform.position.y <= -.01)
-            {
-                isJumping = false;
-                jumpSpeed = 0;
-                PlayerRb.transform.position = new Vector3(0, 0, 0);
-                PlayerRb.linearVelocityY = 0;
-            }
-        }
+        validateJump();
     }
 
-    private void movement(bool isJumping, Vector2 moveAmt)
+    private void movement(Vector2 moveAmt)
     {
         if (ParentRb.transform.position.y >= 2)
         {
@@ -106,8 +88,29 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void jump()
+    private void initiateJump()
     {
-        
+        if (!isJumping)
+        {
+            isJumping = true;
+            jumpSpeed = -maxHeight;
+        }
+    }
+
+    private void validateJump()
+    {
+        if (isJumping)
+        {
+            // Debug.Log("SHEVA");
+            PlayerRb.transform.localPosition = new Vector3(0, (Mathf.Pow(maxHeight, 2f) - Mathf.Pow(jumpSpeed, 2f)), 0);
+            jumpSpeed += travelSpeed;
+
+            if (PlayerRb.transform.localPosition.y <= -0.1)
+            {
+                isJumping = false;
+                jumpSpeed = 0;
+                PlayerRb.transform.localPosition = new Vector3(0, 0, 0);
+            }
+        }
     }
 }

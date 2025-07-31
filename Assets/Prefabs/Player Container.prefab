@@ -200,6 +200,14 @@ PrefabInstance:
       propertyPath: ParentRb
       value: 
       objectReference: {fileID: 6079260707114093848}
+    - target: {fileID: 4974034024705549225, guid: 2e9c5afc1ee1c2240bb29cb5bae0c862, type: 3}
+      propertyPath: maxHeight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974034024705549225, guid: 2e9c5afc1ee1c2240bb29cb5bae0c862, type: 3}
+      propertyPath: travelSpeed
+      value: 0.015
+      objectReference: {fileID: 0}
     - target: {fileID: 8903464064188070249, guid: 2e9c5afc1ee1c2240bb29cb5bae0c862, type: 3}
       propertyPath: m_Name
       value: Player
