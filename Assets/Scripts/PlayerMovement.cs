@@ -4,30 +4,33 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public InputActionAsset playerInputActions;
-    public Rigidbody2D rb;
+    public Rigidbody2D PlayerRb;
+    public Rigidbody2D ParentRb;
 
-    private InputAction jump;
-    private InputAction move;
+    private InputAction jumpButton;
+    private InputAction moveButton;
     private Vector2 moveAmt;
 
     [SerializeField] int moveSpeed = 5;
 
     private bool facingRight = true;
+    private bool isJumping = false;
+    private float jumpSpeed;
 
     private void OnEnable()
     {
-        playerInputActions.FindActionMap("PlayerAttack").Enable();
+        playerInputActions.FindActionMap("PlayerMovement").Enable();
     }
 
     private void OnDisable()
     {
-        playerInputActions.FindActionMap("PlayerAttack").Disable();
+        playerInputActions.FindActionMap("PlayerMovement").Disable();
     }
 
     private void Awake()
     {
-        jump = InputSystem.actions.FindAction("jump");
-        move = InputSystem.actions.FindAction("Move");
+        jumpButton = InputSystem.actions.FindAction("jump");
+        moveButton = InputSystem.actions.FindAction("Move");
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,22 +42,72 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveAmt = move.ReadValue<Vector2>();
-        rb.linearVelocity = (moveAmt * moveSpeed);
+        moveAmt = moveButton.ReadValue<Vector2>();
 
-        if(moveAmt.x > 0)
+        movement(false, moveAmt);
+        determineRotation();
+
+        if (jumpButton.WasPressedThisFrame())
         {
-            rb.transform.rotation = Quaternion.Euler(0, 0, 0);
+            
+            //float targetHeight = PlayerRb.transform.position.y + 1;
+            if (!isJumping)
+            {
+                isJumping = true;
+                jumpSpeed = 10;
+            }
+
         }
 
-        else if(moveAmt.x < 0)
+        if (isJumping)
         {
-            rb.transform.rotation = Quaternion.Euler(0, 180, 0);
+           // Debug.Log("SHEVA");
+            PlayerRb.linearVelocityY = jumpSpeed;
+            jumpSpeed -= .06f;
+
+            if (PlayerRb.transform.position.y <= -.01)
+            {
+                isJumping = false;
+                jumpSpeed = 0;
+                PlayerRb.transform.position = new Vector3(0, 0, 0);
+                PlayerRb.linearVelocityY = 0;
+            }
+        }
+    }
+
+    private void movement(bool isJumping, Vector2 moveAmt)
+    {
+        if (ParentRb.transform.position.y >= 2)
+        {
+            ParentRb.linearVelocityY = Mathf.Clamp(moveAmt.y * moveSpeed, -moveSpeed, 0);
+            ParentRb.linearVelocityX = (moveAmt.x * moveSpeed);
+        }
+        else if (ParentRb.transform.position.y <= -6.5)
+        {
+            ParentRb.linearVelocityY = Mathf.Clamp(moveAmt.y * moveSpeed, 0, moveSpeed);
+            ParentRb.linearVelocityX = (moveAmt.x * moveSpeed);
+        }
+        else
+        {
+            ParentRb.linearVelocity = (moveAmt * moveSpeed);
+        }
+    }
+
+    private void determineRotation()
+    {
+        if (moveAmt.x > 0)
+        {
+            PlayerRb.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
-        if (jump.WasPressedThisFrame())
+        else if (moveAmt.x < 0)
         {
-            Debug.Log("JUMP!");
+            PlayerRb.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
+    }
+
+    private void jump()
+    {
+        
     }
 }

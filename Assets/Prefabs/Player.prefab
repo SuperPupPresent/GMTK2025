@@ -266,7 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInputActions: {fileID: -944628639613478452, guid: 9e6764fc689a6624c90858b9de98b37a, type: 3}
   rb: {fileID: 7182029066386298652}
-  moveSpeed: 5
+  moveSpeed: 10
 --- !u!114 &5742164676728561760
 MonoBehaviour:
   m_ObjectHideFlags: 0
