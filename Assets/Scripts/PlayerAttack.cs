@@ -7,12 +7,14 @@ public class PlayerAttack : MonoBehaviour
     public InputActionAsset playerInputActions;
     public GameObject lightHitbox; // Reference to the light attack hitbox
     public GameObject heavyHitbox; // Reference to the heavy attack hitbox
+    public GameObject bottleHitbox; // Reference to the bottle hitbox for special attacks
 
     private InputAction lightAttack;
     private InputAction heavyAttack;
     private InputAction specialAttack;
     private InputAction grab;
     private InputAction block;
+    private InputAction moveButton;
 
     private bool isAttacking = false; // Flag to prevent multiple attacks at once
 
@@ -35,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
         specialAttack = InputSystem.actions.FindAction("special"); // C or East Button
         grab = InputSystem.actions.FindAction("grab"); // A or Shoulder Button
         block = InputSystem.actions.FindAction("block"); // S or Trigger Button
-
+        moveButton = InputSystem.actions.FindAction("Move"); // arrow keys or joystick
     }
 
 
@@ -64,6 +66,7 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log("PlayerAttack script started");
         lightHitbox.SetActive(false); // Ensure the hitbox is inactive at start
         heavyHitbox.SetActive(false); // Ensure the heavy hitbox is inactive at start
+        bottleHitbox.SetActive(false); // Ensure the bottle hitbox is inactive at start
 
     }
 
@@ -76,24 +79,38 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log("Light Attack Triggered");
             StartCoroutine(PerformLightAttack());
         }
+
         // Check for heavy attack input
         if (heavyAttack.WasPressedThisFrame() && !isAttacking)
         {
             Debug.Log("Heavy Attack Triggered");
             StartCoroutine(PerformHeavyAttack());
         }
-        // Check for special attack input
-        if (specialAttack.WasPressedThisFrame())
+
+        // Check for special attack inputs
+        if (specialAttack.WasPressedThisFrame() && moveButton.ReadValue<Vector2>() != Vector2.zero) //special + movement
         {
-            Debug.Log("Special Attack Triggered");
-            // Implement special attack logic here
+            bottleHitbox.SetActive(true); // Activate the bottle hitbox
+            Debug.Log("Special Attack Bottle Throw Triggered");
+            Vector3 throwdirection = new Vector3(moveButton.ReadValue<Vector2>().x, 0, moveButton.ReadValue<Vector2>().y).normalized;
+            GameObject bottle = Instantiate(bottleHitbox, bottleHitbox.transform.position, Quaternion.identity);
+            BottleThrow bottleScript = bottle.GetComponent<BottleThrow>();
+            bottleScript.Launch(throwdirection, this.transform); 
+            bottleHitbox.SetActive(false); // Deactivate the bottle hitbox after instantiation
         }
+        if(specialAttack.WasPressedThisFrame() && moveButton.ReadValue<Vector2>() == Vector2.zero) //special + no movement
+        {
+            Debug.Log("Special Attack Recall Triggered");
+            // Implement special attack recall logic here
+        }
+
         // Check for grab input
         if (grab.WasPressedThisFrame())
         {
             Debug.Log("Grab Triggered");
             // Implement grab logic here
         }
+
         // Check for block input
         if (block.WasPressedThisFrame())
         {
