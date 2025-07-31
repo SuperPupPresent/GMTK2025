@@ -4,8 +4,11 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public InputActionAsset playerInputActions;
+    
     public Rigidbody2D PlayerRb;
     public Rigidbody2D ParentRb;
+
+    public GameObject cameraObject;
 
     private InputAction jumpButton;
     private InputAction moveButton;
@@ -18,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private bool isJumping = false;
     private float jumpSpeed;
+    private float cameraRadius;
+    private Transform CameraTransform;
 
     private void OnEnable()
     {
@@ -38,6 +43,9 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        cameraRadius = cameraObject.GetComponent<Camera>().orthographicSize * cameraObject.GetComponent<Camera>().aspect;
+        CameraTransform = cameraObject.GetComponent<Transform>();
+
         
     }
 
@@ -59,19 +67,39 @@ public class PlayerMovement : MonoBehaviour
 
     private void movement(Vector2 moveAmt)
     {
+        // Restricts movement when:
+
+        //Top of screen
         if (ParentRb.transform.position.y >= 2)
         {
             ParentRb.linearVelocityY = Mathf.Clamp(moveAmt.y * moveSpeed, -moveSpeed, 0);
-            ParentRb.linearVelocityX = (moveAmt.x * moveSpeed);
+            //ParentRb.linearVelocityX = (moveAmt.x * moveSpeed);
+
         }
+        //Botton of screen
         else if (ParentRb.transform.position.y <= -6.5)
         {
             ParentRb.linearVelocityY = Mathf.Clamp(moveAmt.y * moveSpeed, 0, moveSpeed);
-            ParentRb.linearVelocityX = (moveAmt.x * moveSpeed);
+            //ParentRb.linearVelocityX = (moveAmt.x * moveSpeed);
         }
         else
         {
-            ParentRb.linearVelocity = (moveAmt * moveSpeed);
+            ParentRb.linearVelocityY = moveAmt.y * moveSpeed;
+        }
+        //Right of screen
+        if (ParentRb.transform.position.x >= CameraTransform.position.x + cameraRadius)
+        {
+            ParentRb.linearVelocityX = Mathf.Clamp(moveAmt.x * moveSpeed, -moveSpeed, 0);
+        }
+        //Left of screen
+        else if (ParentRb.transform.position.x <= CameraTransform.position.x - cameraRadius)
+        {
+            //ParentRb.linearVelocityY = moveAmt.y * moveSpeed;
+            ParentRb.linearVelocityX = Mathf.Clamp(moveAmt.x * moveSpeed, 0, moveSpeed);
+        }
+        else
+        {
+            ParentRb.linearVelocityX = moveAmt.x * moveSpeed;
         }
     }
 
