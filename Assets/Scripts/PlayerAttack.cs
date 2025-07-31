@@ -6,13 +6,15 @@ public class PlayerAttack : MonoBehaviour
 {
     public InputActionAsset playerInputActions;
     public GameObject lightHitbox; // Reference to the light attack hitbox
-    public float lightDuration = 0.5f; // Duration for the light attack hitbox
+    public GameObject heavyHitbox; // Reference to the heavy attack hitbox
 
     private InputAction lightAttack;
     private InputAction heavyAttack;
     private InputAction specialAttack;
     private InputAction grab;
     private InputAction block;
+
+    private bool isAttacking = false; // Flag to prevent multiple attacks at once
 
     private void OnEnable()
     {
@@ -27,8 +29,6 @@ public class PlayerAttack : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("PlayerAttack script awake");
-        playerInputActions.FindActionMap("PlayerAttack").Enable();
 
         lightAttack = InputSystem.actions.FindAction("light"); // Z or West Button
         heavyAttack = InputSystem.actions.FindAction("heavy"); // X or North Button
@@ -41,9 +41,20 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator PerformLightAttack() 
     { 
+        isAttacking = true; // Set attacking flag to true
         lightHitbox.SetActive(true); // Activate the hitbox
-        yield return new WaitForSeconds(lightDuration); // Wait for the duration of the light attack
+        yield return new WaitForSeconds(0.2f); // Wait for the duration of the light attack
         lightHitbox.SetActive(false); // Deactivate the hitbox
+        isAttacking = false; // Reset attacking flag
+    }
+
+    private IEnumerator PerformHeavyAttack() 
+    { 
+        isAttacking = true; // Set attacking flag to true
+        heavyHitbox.SetActive(true); // Activate the heavy hitbox
+        yield return new WaitForSeconds(0.5f); // Wait for the duration of the heavy attack
+        heavyHitbox.SetActive(false); // Deactivate the heavy hitbox
+        isAttacking = false; // Reset attacking flag
     }
 
 
@@ -52,23 +63,24 @@ public class PlayerAttack : MonoBehaviour
     {
         Debug.Log("PlayerAttack script started");
         lightHitbox.SetActive(false); // Ensure the hitbox is inactive at start
-       
+        heavyHitbox.SetActive(false); // Ensure the heavy hitbox is inactive at start
+
     }
 
     // Update is called once per frame
     void Update()
     {
         //if the light attack input is triggered, perform the light attack
-        if (lightAttack.WasPressedThisFrame())
+        if (lightAttack.WasPressedThisFrame() && !isAttacking)
         {
             Debug.Log("Light Attack Triggered");
             StartCoroutine(PerformLightAttack());
         }
         // Check for heavy attack input
-        if (heavyAttack.WasPressedThisFrame())
+        if (heavyAttack.WasPressedThisFrame() && !isAttacking)
         {
             Debug.Log("Heavy Attack Triggered");
-            // Implement heavy attack logic here
+            StartCoroutine(PerformHeavyAttack());
         }
         // Check for special attack input
         if (specialAttack.WasPressedThisFrame())
