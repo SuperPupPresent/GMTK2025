@@ -11,6 +11,8 @@ public class GoonInnerTrigger : MonoBehaviour
             goonScript.playerInner = true;
         }
 
+        Debug.Log("INNER: " + collision.tag);
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
