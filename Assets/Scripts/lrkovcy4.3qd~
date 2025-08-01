@@ -1,0 +1,19 @@
+using UnityEngine;
+
+public class GoonInnerTrigger : MonoBehaviour
+{
+    public Goon goonScript;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            goonScript.playerInner = true;
+        }
+
+        else
+        {
+            goonScript.playerInner = false;
+        }
+    }
+}

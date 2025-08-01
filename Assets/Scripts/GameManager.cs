@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
     {
         RegenMana();
 
-        Debug.Log("Health: " + currentHealth);
-        Debug.Log("Mana: " + currentMana);
+        //Debug.Log("Health: " + currentHealth);
+        //Debug.Log("Mana: " + currentMana);
 
     }
 
