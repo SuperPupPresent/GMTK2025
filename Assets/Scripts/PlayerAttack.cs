@@ -25,6 +25,7 @@ public class PlayerAttack : MonoBehaviour
     private bool isLightRightNext = true; // Flag used for left right alternation
 
     private float bottleThrowManaCost = 10f; // Mana cost for throwing a bottle
+    private float recallManaCost = 50f; // Mana cost for recalling
 
     private void OnEnable()
     {
@@ -96,8 +97,10 @@ public class PlayerAttack : MonoBehaviour
     private IEnumerator PerformBottleThrow()
     {
         animator.SetBool("isRunning", false);
+        animator.SetBool("isBottleThrow", true);
         gameManager.setMana(-1 * bottleThrowManaCost); // Deduct mana cost for throwing a bottle
 
+        isAttacking = true;
         bottleThrown = true; // Set the flag to true to prevent multiple throws
         bottleHitbox.SetActive(true); // Activate the bottle hitbox
 
@@ -106,9 +109,26 @@ public class PlayerAttack : MonoBehaviour
         BottleThrow bottleScript = bottle.GetComponent<BottleThrow>();
         bottleScript.Launch(throwdirection, this.transform);
 
-        yield return new WaitForSeconds(1.1f); // Wait for a short duration before resetting
+        yield return new WaitForSeconds(0.1f); 
+        isAttacking = false;
+        animator.SetBool("isBottleThrow", false);
+
+        yield return new WaitForSeconds(1f); // Wait for a short duration before resetting
         bottleThrown = false; // Reset the flag after instantiation
         bottleHitbox.SetActive(false); // Deactivate the bottle hitbox after instantiation
+    }
+
+    private IEnumerator PerformRecall()
+    {
+        isAttacking = true;
+        animator.SetBool("isRunning", false);
+        animator.SetBool("isRecall", true);
+
+        gameManager.setMana(-1 * recallManaCost); // Deduct mana cost for recall
+
+        yield return new WaitForSeconds(1f); 
+        animator.SetBool("isRecall", false);
+        isAttacking = false;
     }
 
 
@@ -147,10 +167,10 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log("Special Attack Bottle Throw Triggered");
             StartCoroutine(PerformBottleThrow());
         }
-        if(specialAttack.WasPressedThisFrame() && moveButton.ReadValue<Vector2>() == Vector2.zero) //special + no movement
+        if(specialAttack.WasPressedThisFrame() && (moveButton.ReadValue<Vector2>() == Vector2.zero) && gameManager.currentMana >= recallManaCost) //special + no movement + enough mana
         {
             Debug.Log("Special Attack Recall Triggered");
-            // Implement special attack recall logic here
+            StartCoroutine(PerformRecall());
         }
 
         // Check for grab input
