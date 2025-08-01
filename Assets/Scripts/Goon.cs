@@ -9,6 +9,7 @@ public class Goon : MonoBehaviour
 
     public GameObject hitBox;
     public GameObject player;
+    public Animator animator;
 
     [SerializeField] private float moveSpeed;
 
@@ -39,7 +40,12 @@ public class Goon : MonoBehaviour
         //The move towards player state
         if(playerOuter && !playerInner && !isStunned)
         {
-           transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed);
+            animator.SetBool("isWalking", true);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
         }
 
         //Attack state

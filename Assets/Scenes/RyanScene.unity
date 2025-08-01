@@ -385,14 +385,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1599201336905528000, guid: 3282590a191500f43956adeb157c6076, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 4080182121286673236, guid: 3282590a191500f43956adeb157c6076, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4138089712420133655, guid: 3282590a191500f43956adeb157c6076, type: 3}
       propertyPath: m_Name
       value: Goon
@@ -436,14 +428,6 @@ PrefabInstance:
     - target: {fileID: 5505159981535768040, guid: 3282590a191500f43956adeb157c6076, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5510883994269869596, guid: 3282590a191500f43956adeb157c6076, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5510883994269869596, guid: 3282590a191500f43956adeb157c6076, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
