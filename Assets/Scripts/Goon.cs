@@ -7,7 +7,7 @@ public class Goon : MonoBehaviour
     public bool playerOuter;
     public bool isStunned;
 
-    public GameObject hitBox;
+    public GameObject hitBox; //Attack from the goon
     public GameObject player;
     public Animator animator;
 

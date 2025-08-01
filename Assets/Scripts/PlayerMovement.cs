@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject cameraObject;
 
     public PlayerAttack attackScript;
-    public PlayerHurt hurtScript;
+    public PlayerHealth hurtScript;
 
     private InputAction jumpButton;
     private InputAction moveButton;
