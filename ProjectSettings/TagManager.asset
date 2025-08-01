@@ -8,6 +8,8 @@ TagManager:
   - New tag
   - CollectItem
   - Collectable
+  - Heart
+  - Mana
   layers:
   - Default
   - TransparentFX

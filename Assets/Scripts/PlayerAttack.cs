@@ -96,7 +96,7 @@ public class PlayerAttack : MonoBehaviour
     private IEnumerator PerformBottleThrow()
     {
         animator.SetBool("isRunning", false);
-        gameManager.currentMana -= bottleThrowManaCost; // Deduct mana cost for throwing a bottle
+        gameManager.setMana(-1 * bottleThrowManaCost); // Deduct mana cost for throwing a bottle
 
         bottleThrown = true; // Set the flag to true to prevent multiple throws
         bottleHitbox.SetActive(true); // Activate the bottle hitbox
