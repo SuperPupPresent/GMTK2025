@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -28,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
     private float jumpSpeed;
     private float cameraRadius;
     private Transform CameraTransform;
+
+    //Vishnu Recall Stuff
+    private Queue<(Vector3 position, float time)> positionHistory = new(); // position queue
+    private float positionRecordDuration = 2.1f; // recall duration
+    public GameObject playerContainer; // reference to container used for recall
 
     private void OnEnable()
     {
@@ -69,6 +76,29 @@ public class PlayerMovement : MonoBehaviour
         }
 
         validateJump();
+
+        //record position with timestamp
+        float now = Time.time;
+        positionHistory.Enqueue((playerContainer.transform.position, now));
+        //remove old positions
+        while (positionHistory.Count > 0 && now - positionHistory.Peek().time > positionRecordDuration)
+        {
+            positionHistory.Dequeue();
+        }
+    }
+
+    public List<Vector3> GetPositionsForRecall(float seconds)
+    {
+        List<Vector3> positions = new List<Vector3>();
+        float now = Time.time;
+        foreach (var entry in positionHistory)
+        {
+            if (now - entry.time <= seconds)
+            {
+                positions.Add(entry.position);
+            }
+        }
+        return positions;
     }
 
     private void movement(Vector2 moveAmt)

@@ -1,6 +1,8 @@
+using NUnit.Framework;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -8,8 +10,14 @@ public class PlayerAttack : MonoBehaviour
     public GameObject lightHitbox; // Reference to the light attack hitbox
     public GameObject heavyHitbox; // Reference to the heavy attack hitbox
     public GameObject bottleHitbox; // Reference to the bottle hitbox for special attacks
+    public GameObject recallHitbox; // Reference to the recall hitbox
+    public GameObject playerContainer; // reference to container used for recall
+
 
     private GameManager gameManager; // Reference to the GameManager for health and mana management
+    private PlayerMovement playerMovement; // Reference to the PlayerMovement script for player movement
+
+
 
     private InputAction lightAttack;
     private InputAction heavyAttack;
@@ -26,6 +34,7 @@ public class PlayerAttack : MonoBehaviour
 
     private float bottleThrowManaCost = 10f; // Mana cost for throwing a bottle
     private float recallManaCost = 50f; // Mana cost for recalling
+    private float recallSpeed = 0.0001f;
 
     private void OnEnable()
     {
@@ -126,8 +135,19 @@ public class PlayerAttack : MonoBehaviour
 
         gameManager.setMana(-1 * recallManaCost); // Deduct mana cost for recall
 
-        yield return new WaitForSeconds(1f); 
+        // move player to position from 2 seconds ago
+        List<Vector3> recallPath = playerMovement.GetPositionsForRecall(2f); //get the list of positions
+        for(int i = recallPath.Count -1; i >= 0; i--)
+        {
+            playerContainer.transform.position = recallPath[i]; // move player to each position in the list
+            yield return new WaitForSeconds(recallSpeed);
+        }
+        
+        gameManager.setHealth(gameManager.currentHealth + 20); // Heal the player by 20 health points after recall
         animator.SetBool("isRecall", false);
+        recallHitbox.SetActive(true); // Activate the recall hitbox
+        yield return new WaitForSeconds(0.5f); // Wait for the duration of the recall
+        recallHitbox.SetActive(false); // Deactivate the recall hitbox
         isAttacking = false;
     }
 
@@ -139,8 +159,10 @@ public class PlayerAttack : MonoBehaviour
         lightHitbox.SetActive(false); // Ensure the hitbox is inactive at start
         heavyHitbox.SetActive(false); // Ensure the heavy hitbox is inactive at start
         bottleHitbox.SetActive(false); // Ensure the bottle hitbox is inactive at start
+        recallHitbox.SetActive(false); // Ensure the recall hitbox is inactive at start
 
         gameManager = FindFirstObjectByType<GameManager>(); // Find the GameManager in the scene
+        playerMovement = FindFirstObjectByType<PlayerMovement>(); // Find the PlayerMovement script in the scene
 
     }
 
