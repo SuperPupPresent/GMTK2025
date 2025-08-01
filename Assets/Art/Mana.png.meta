@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f56301cee562d1a4a98dc5eb84463f6e
+guid: 2b2b97bfa6778a04f8032533c9a6a44e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8630923909508717717
-    second: Health_0
+      213: -6570561837541687440
+    second: Health 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Health_0
+      name: Health 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b63ae42de6cc83880800000000000000
-      internalID: -8630923909508717717
+      spriteID: 07ff69232dca0d4a0800000000000000
+      internalID: -6570561837541687440
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Health_0: -8630923909508717717
+      Health 1_0: -6570561837541687440
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

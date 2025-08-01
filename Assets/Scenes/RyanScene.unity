@@ -206,25 +206,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2040976511 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4138089712420133655, guid: 3282590a191500f43956adeb157c6076, type: 3}
-  m_PrefabInstance: {fileID: 4991829213097143847}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2040976516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040976511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ba117d2a00c614e8dd16fcbc7a4080, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInner: 0
-  playerOuter: 0
 --- !u!1001 &2382735104819807072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273,17 +254,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2336117312028965343, guid: b3df831292dbe5c40bd3be3c8ebfa0a9, type: 3}
-      propertyPath: manaRegenRate
-      value: 5
+    - target: {fileID: 2019006047107121087, guid: b3df831292dbe5c40bd3be3c8ebfa0a9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3896617212890157660, guid: b3df831292dbe5c40bd3be3c8ebfa0a9, type: 3}
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 3918422028360164895, guid: b3df831292dbe5c40bd3be3c8ebfa0a9, type: 3}
-      propertyPath: m_TagString
-      value: Player
+    - target: {fileID: 3932639331366832814, guid: b3df831292dbe5c40bd3be3c8ebfa0a9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669957923235709514, guid: b3df831292dbe5c40bd3be3c8ebfa0a9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -298,10 +283,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2441349088132516288, guid: 3282590a191500f43956adeb157c6076, type: 3}
-      propertyPath: goonScript
-      value: 
-      objectReference: {fileID: 2040976516}
     - target: {fileID: 4138089712420133655, guid: 3282590a191500f43956adeb157c6076, type: 3}
       propertyPath: m_Name
       value: Goon
@@ -346,33 +327,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5510883994269869596, guid: 3282590a191500f43956adeb157c6076, type: 3}
-      propertyPath: m_Size.x
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5510883994269869596, guid: 3282590a191500f43956adeb157c6076, type: 3}
-      propertyPath: m_Size.y
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 5510883994269869596, guid: 3282590a191500f43956adeb157c6076, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6033513697834078167, guid: 3282590a191500f43956adeb157c6076, type: 3}
-      propertyPath: goonScript
-      value: 
-      objectReference: {fileID: 2040976516}
-    - target: {fileID: 8366072416187257172, guid: 3282590a191500f43956adeb157c6076, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4138089712420133655, guid: 3282590a191500f43956adeb157c6076, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2040976516}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3282590a191500f43956adeb157c6076, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

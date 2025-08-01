@@ -1,67 +1,46 @@
 fileFormatVersion: 2
-guid: 50c6d259fb6834545a61b15f2151ba21
+guid: 2bf0176509c999a47887f2fa651497f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4824328389704425691
-    second: Heart 1_0
+      213: 3954793459581661542
+    second: Goont_0
   - first:
-      213: -2752216940372235313
-    second: Heart 1_1
+      213: -688873186211137641
+    second: Goont_1
   - first:
-      213: 6375093254594437473
-    second: Heart 1_2
+      213: 8875073324027924422
+    second: Goont_2
   - first:
-      213: -271681075339203530
-    second: Heart 1_3
+      213: -8473397102569801276
+    second: Goont_3
   - first:
-      213: -3863654441253739398
-    second: Heart 1_4
+      213: 1150689059101600501
+    second: Goont_4
   - first:
-      213: 6479384244678656546
-    second: Heart 1_5
+      213: -1890576692931783386
+    second: Goont_5
   - first:
-      213: -9047141048047929368
-    second: Heart 1_6
+      213: -868697513684667886
+    second: Goont_6
   - first:
-      213: -4404202346457125705
-    second: Heart 1_7
+      213: 6974359523999755730
+    second: Goont_7
   - first:
-      213: -5783715670072252522
-    second: Heart 1_8
+      213: -5476482796644374293
+    second: Goont_8
   - first:
-      213: 6117708030481055734
-    second: Heart 1_9
+      213: -7229308007974840741
+    second: Goont_9
   - first:
-      213: -1212341803034797921
-    second: Heart 1_10
+      213: 266065189692957532
+    second: Goont_10
   - first:
-      213: 7358536118627822948
-    second: Heart 1_11
+      213: -1449892705267843961
+    second: Goont_11
   - first:
-      213: 6634631937905767370
-    second: Heart 1_12
-  - first:
-      213: 8979471289350332734
-    second: Heart 1_13
-  - first:
-      213: -8557187540550872095
-    second: Heart 1_14
-  - first:
-      213: 3621694652286146441
-    second: Heart 1_15
-  - first:
-      213: 2627956338449353664
-    second: Heart 1_16
-  - first:
-      213: 1742516788348865906
-    second: Heart 1_17
-  - first:
-      213: 5137715892879386036
-    second: Heart 1_18
-  - first:
-      213: -7058255071743192308
-    second: Heart 1_19
+      213: -7419765728233416961
+    second: Goont_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,7 +87,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -170,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heart_0
+      name: Goon_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 128
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 333e93b04a2e411489e76db2a6084888
-      internalID: -1779322327
+      spriteID: 5563cf68f816d1341891ade21e7c2094
+      internalID: 228176378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heart_1
+      name: Goon_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 128
         y: 0
-        width: 48
-        height: 48
+        width: 128
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6492ea81eea6bd6458282095c73e5f94
-      internalID: -597767459
+      spriteID: b2727676c3e2c9143bbaa30b7b55f22e
+      internalID: 2032923587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heart_2
+      name: Goon_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 256
         y: 0
-        width: 48
-        height: 48
+        width: 128
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,130 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 320ad5ebf3a84bc4088e9e3959bf39e6
-      internalID: -795190739
+      spriteID: 849353895e756904d93ab22e6d8d52d9
+      internalID: -780874830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heart_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d524354396205fb4d86c0bbf7e0e0e3b
-      internalID: 1219128734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Heart_4
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5dc4eea31e28e2049bfd28ff464b9837
-      internalID: 438289489
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Heart_5
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b69dd81670125b345bd5ca36d7b4060c
-      internalID: -87540828
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Heart_6
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20b33a01f73fb884e883f2bea7fb092b
-      internalID: -1688434023
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Heart_7
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 194400b6cdb2ac94f80a73f4e2e8cbf3
-      internalID: -486160076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Heart_8
+      name: Goon_3
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 48
-        height: 48
+        width: 128
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -361,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2c070d6eb97e3f488b1f45239194de0
-      internalID: -1331065645
+      spriteID: 6c647226c647f0843a42dd71ad342e87
+      internalID: -1610660385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heart_9
+      name: Goon_4
       rect:
         serializedVersion: 2
-        x: 432
+        x: 512
         y: 0
-        width: 48
-        height: 48
+        width: 128
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -383,20 +252,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3706e543334c95c498700a3fbbc06381
-      internalID: 1762383298
+      spriteID: 18fb6c3bd4751934b91a5da84cc1bff8
+      internalID: -106568357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heart_10
+      name: Goon_5
       rect:
         serializedVersion: 2
-        x: 480
+        x: 640
         y: 0
-        width: 48
-        height: 48
+        width: 128
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -405,20 +274,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56f21a70a611e0142a57b04a2a34643d
-      internalID: -34682453
+      spriteID: 96061e983ab89b24d835306c61639caa
+      internalID: 1283357761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heart_11
+      name: Goon_6
       rect:
         serializedVersion: 2
-        x: 528
+        x: 768
         y: 0
-        width: 48
-        height: 48
+        width: 128
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -427,8 +296,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 132a47edfc0f77c459b16358e2f537c0
-      internalID: 746343997
+      spriteID: 65cb2f6879e190242aa2a6a7feab4a02
+      internalID: 348490052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goon_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f527b69182b9fd42b5545319874b528
+      internalID: -1053661549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goon_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9234c38be314ec54888af3515ac6bdbc
+      internalID: 1906971230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goon_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27d6c71ee41c5d343a126d9b8e9d4844
+      internalID: -741769917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goon_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8894e916f734a4349a7c265969399c67
+      internalID: -96101108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goon_11
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2570a1138ae7c4e87da37d689d300f
+      internalID: -1389965723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goon_12
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b66726cac0af71b42b0bb779527ad412
+      internalID: -794243436
       vertices: []
       indices: 
       edges: []
@@ -437,7 +438,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e8af9141ed20db34e88de1e0b5c4c6e7
+    spriteID: 2442f7fd03808c44f8ba6318bf12159f
     internalID: 0
     vertices: []
     indices: 
@@ -447,18 +448,19 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heart_0: -1779322327
-      Heart_1: -597767459
-      Heart_10: -34682453
-      Heart_11: 746343997
-      Heart_2: -795190739
-      Heart_3: 1219128734
-      Heart_4: 438289489
-      Heart_5: -87540828
-      Heart_6: -1688434023
-      Heart_7: -486160076
-      Heart_8: -1331065645
-      Heart_9: 1762383298
+      Goon_0: 228176378
+      Goon_1: 2032923587
+      Goon_10: -96101108
+      Goon_11: -1389965723
+      Goon_12: -794243436
+      Goon_2: -780874830
+      Goon_3: -1610660385
+      Goon_4: -106568357
+      Goon_5: 1283357761
+      Goon_6: 348490052
+      Goon_7: -1053661549
+      Goon_8: 1906971230
+      Goon_9: -741769917
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
