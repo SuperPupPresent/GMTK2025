@@ -50,7 +50,7 @@ MonoBehaviour:
   maxPlayerMana: 100
   healthBar: {fileID: 2479437244324379863}
   manaBar: {fileID: 665315171002459778}
-  manaRegenRate: 5
+  manaRegenRate: 2
   currentHealth: 0
   currentMana: 0
 --- !u!1001 &4797892341566549

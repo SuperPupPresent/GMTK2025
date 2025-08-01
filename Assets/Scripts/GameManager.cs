@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentMana < maxPlayerMana)
         {
-            currentMana = Mathf.Clamp(currentMana + manaRegenRate * Time.deltaTime, 0, 100);
+            setMana(Mathf.Clamp(manaRegenRate * Time.deltaTime, 0, 100));
         }
     }
 
