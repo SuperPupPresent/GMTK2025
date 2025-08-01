@@ -11,7 +11,7 @@ public class GoonInnerTrigger : MonoBehaviour
             goonScript.playerInner = true;
         }
 
-        Debug.Log("INNER: " + collision.tag);
+        //Debug.Log("INNER: " + collision.tag);
 
     }
 
@@ -20,7 +20,7 @@ public class GoonInnerTrigger : MonoBehaviour
         if (collision.tag == "Player")
         {
             goonScript.playerInner = false;
-            Debug.Log("Player Left attack range");
+            //Debug.Log("Player Left attack range");
         }
     }
 }

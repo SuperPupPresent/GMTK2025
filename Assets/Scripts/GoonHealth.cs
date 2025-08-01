@@ -7,12 +7,14 @@ public class GoonHealth : MonoBehaviour
     [HideInInspector] public float currentHealth;
     public Animator enemyAnimator;
     public bool stunned;
+    public bool dead;
     public float stunnedTime;
 
     void Start()
     {
         currentHealth = maxEnemyHealth;
         stunned = false;
+        dead = false;
     }
 
     public IEnumerator takeDamage(int damage)
@@ -36,7 +38,7 @@ public class GoonHealth : MonoBehaviour
 
     public IEnumerator Dead()
     {
-        stunned = true;
+        dead = true;
         enemyAnimator.Play("Dead");
         yield return new WaitForSeconds(stunnedTime);
         Time.timeScale = 1f;

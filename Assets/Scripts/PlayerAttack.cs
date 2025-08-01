@@ -76,7 +76,7 @@ public class PlayerAttack : MonoBehaviour
 
 
         lightHitbox.SetActive(true);
-        yield return new WaitForSeconds(0.2f); // Wait for the duration of the light attack
+        yield return new WaitForSeconds(0.21f); // Wait for the duration of the light attack
         lightHitbox.SetActive(false); // Deactivate the hitbox
         isAttacking = false;
 

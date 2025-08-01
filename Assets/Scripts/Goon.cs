@@ -13,6 +13,7 @@ public class Goon : MonoBehaviour
     [SerializeField] private float moveSpeed;
 
     private float timeBeforeAttack = 0.5f;
+    float stunTime = 0;
 
     public GoonHealth health;
 
@@ -22,8 +23,13 @@ public class Goon : MonoBehaviour
         hitBox.SetActive(false);
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        if (health.dead)
+        {
+            StopAllCoroutines();
+            return;
+        }
         //Changes rotation
         if(player != null && health.currentHealth > 0)
         {
@@ -45,6 +51,7 @@ public class Goon : MonoBehaviour
         }
         else
         {
+            //Debug.Log("Stopped " + playerOuter + " " + !playerInner + " " + !health.stunned);
             animator.SetBool("isWalking", false);
         }
 
@@ -59,6 +66,15 @@ public class Goon : MonoBehaviour
             }
         }
 
+        if (health.stunned)
+        {
+            stunTime += Time.deltaTime;
+            if (stunTime > 0.2)
+            {
+                health.stunned = false;
+                stunTime = 0;
+            }
+        }
         ////Stunned State
         //if (isStunned)
         //{

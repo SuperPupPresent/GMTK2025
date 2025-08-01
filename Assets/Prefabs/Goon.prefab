@@ -448,7 +448,7 @@ MonoBehaviour:
   hitBox: {fileID: 3759722248517119824}
   player: {fileID: 0}
   animator: {fileID: 2444552400086719003}
-  moveSpeed: 0.005
+  moveSpeed: 0.05
   health: {fileID: 7479275099324577394}
 --- !u!114 &7479275099324577394
 MonoBehaviour:
@@ -466,6 +466,7 @@ MonoBehaviour:
   currentHealth: 0
   enemyAnimator: {fileID: 2444552400086719003}
   stunned: 0
+  dead: 0
   stunnedTime: 0.2
 --- !u!1 &8476220091004009720
 GameObject:

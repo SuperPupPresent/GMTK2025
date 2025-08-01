@@ -20,7 +20,7 @@ public class GoonOuterTrigger : MonoBehaviour
         {
             goonScript.playerOuter = false;
             goonScript.player = null;
-            Debug.Log("Player is out of sight");
+            //Debug.Log("Player is out of sight");
         }
     }
 }
