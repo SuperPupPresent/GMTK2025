@@ -18,8 +18,11 @@ public class PlayerAttack : MonoBehaviour
     private InputAction block;
     private InputAction moveButton;
 
+    public Animator animator; // Reference to the Animator for player animations
+
     private bool isAttacking = false; // Flag to prevent multiple attacks at once
     private bool bottleThrown = false; // Flag to check if the bottle has been thrown
+    private bool isLightRightNext = true; // Flag used for left right alternation
 
     private float bottleThrowManaCost = 10f; // Mana cost for throwing a bottle
 
@@ -47,21 +50,45 @@ public class PlayerAttack : MonoBehaviour
 
 
     private IEnumerator PerformLightAttack() 
-    { 
-        isAttacking = true; // Set attacking flag to true
-        lightHitbox.SetActive(true); // Activate the hitbox
+    {
+        isAttacking = true;
+
+        if(isLightRightNext)
+        {
+            animator.SetBool("isLightLeft", true);
+        }
+        else
+        {
+            animator.SetBool("isLightRight", true);
+        }
+
+
+        lightHitbox.SetActive(true);
         yield return new WaitForSeconds(0.2f); // Wait for the duration of the light attack
         lightHitbox.SetActive(false); // Deactivate the hitbox
-        isAttacking = false; // Reset attacking flag
+        isAttacking = false;
+
+        animator.SetBool("isLightLeft", false); 
+        animator.SetBool("isLightRight", false); 
+        isLightRightNext = !isLightRightNext; // alternation
     }
 
     private IEnumerator PerformHeavyAttack() 
     { 
-        isAttacking = true; // Set attacking flag to true
-        heavyHitbox.SetActive(true); // Activate the heavy hitbox
-        yield return new WaitForSeconds(0.5f); // Wait for the duration of the heavy attack
-        heavyHitbox.SetActive(false); // Deactivate the heavy hitbox
-        isAttacking = false; // Reset attacking flag
+        animator.SetBool("isHeavy", true);
+        isAttacking = true;
+
+        yield return new WaitForSeconds(0.1f); // Short delay before starting heavy attack
+        
+        heavyHitbox.SetActive(true); 
+        yield return new WaitForSeconds(0.3f); // Wait for the duration of the heavy attack
+
+        animator.SetBool("isHeavy", false);
+        heavyHitbox.SetActive(false);
+        
+        isAttacking = false;
+
+        
     }
 
     private IEnumerator PerformBottleThrow()

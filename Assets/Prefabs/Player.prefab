@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 61688098133972597}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 1, z: -0.016996589}
-  m_LocalScale: {x: 3, y: 4, z: 1}
+  m_LocalPosition: {x: 2.5, y: 1.5, z: -0.016996589}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2185866507653029343}
@@ -107,7 +107,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.5, y: 1.5, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4493454376880447481}
@@ -240,8 +240,8 @@ Transform:
   m_GameObject: {fileID: 2677520519543132282}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 7, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 722127743150494745}
@@ -785,6 +785,7 @@ MonoBehaviour:
   lightHitbox: {fileID: 1304762691975311013}
   heavyHitbox: {fileID: 61688098133972597}
   bottleHitbox: {fileID: 4959199921544994312}
+  animator: {fileID: 0}
 --- !u!114 &4974034024705549225
 MonoBehaviour:
   m_ObjectHideFlags: 0

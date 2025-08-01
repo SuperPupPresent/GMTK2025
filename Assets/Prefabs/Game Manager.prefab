@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayerHealth: 100
   maxPlayerMana: 100
+  manaRegenRate: 0
   currentHealth: 0
   currentMana: 0
 --- !u!1001 &4328381441153856116
@@ -101,6 +102,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6125398342986092068, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 8208224498029965124}
     - target: {fileID: 6125398342986092068, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
       propertyPath: heavyHitbox
       value: 
