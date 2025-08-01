@@ -111,7 +111,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            
             ParentRb.linearVelocity = new Vector2(0,0);
             animator.SetBool("isRunning", false);
         }
@@ -120,14 +119,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void determineRotation()
     {
-        if (moveAmt.x > 0)
+        if (!attackScript.isAttacking)
         {
-            PlayerRb.transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
+            if (moveAmt.x > 0)
+            {
+                PlayerRb.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
 
-        else if (moveAmt.x < 0)
-        {
-            PlayerRb.transform.rotation = Quaternion.Euler(0, 180, 0);
+            else if (moveAmt.x < 0)
+            {
+                PlayerRb.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
         }
     }
 
