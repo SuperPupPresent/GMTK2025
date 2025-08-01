@@ -119,6 +119,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125398342986092068, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 8208224498029965124}
+    - target: {fileID: 6125398342986092068, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
       propertyPath: heavyHitbox
       value: 
       objectReference: {fileID: 5563446964541884675}
