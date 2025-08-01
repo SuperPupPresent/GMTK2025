@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Image healthBar;
     [SerializeField] Image manaBar;
+    [SerializeField] GameObject gameOverScreen;
 
     [SerializeField] private float manaRegenRate;
 
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameOverScreen.SetActive(false);
         currentHealth = maxPlayerHealth - 40;
         currentMana = maxPlayerMana - 40;
 
@@ -29,7 +32,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         RegenMana();
-
+        if (currentHealth <= 0)
+        {
+            StartCoroutine(gameOver());
+        }
+        setHealth(-1);
         //Debug.Log("Health: " + currentHealth);
         //Debug.Log("Mana: " + currentMana);
 
@@ -61,5 +68,14 @@ public class GameManager : MonoBehaviour
             currentMana = maxPlayerMana;
         }
         manaBar.fillAmount = currentMana / maxPlayerMana;
+    }
+
+    IEnumerator gameOver()
+    {
+        yield return new WaitForSeconds(1f);
+        gameOverScreen.SetActive(true);
+        //Play game over audio
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Game");
     }
 }

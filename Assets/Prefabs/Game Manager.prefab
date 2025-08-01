@@ -50,6 +50,7 @@ MonoBehaviour:
   maxPlayerMana: 100
   healthBar: {fileID: 2479437244324379863}
   manaBar: {fileID: 665315171002459778}
+  gameOverScreen: {fileID: 0}
   manaRegenRate: 2
   currentHealth: 0
   currentMana: 0
@@ -197,6 +198,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1057429423931967831, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2336117312028965343}
     - target: {fileID: 2101495787553216353, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
       propertyPath: m_Layer
       value: 6
