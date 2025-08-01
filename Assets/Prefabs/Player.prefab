@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 722127743150494745}
   - component: {fileID: 946169935965969724}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeavyHitbox
   m_TagString: Hitbox
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2266036611059357224}
   - component: {fileID: 8898540932681569752}
   - component: {fileID: 7248856609389792835}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LightHitbox
   m_TagString: Hitbox
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -224,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2185866507653029343}
   - component: {fileID: 3267239524389834716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeavySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,6 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8833748289631594469}
   - component: {fileID: 6105938917258567317}
+  - component: {fileID: 1391928865144614526}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -388,6 +389,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1391928865144614526
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483293434862185803}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 70e782ce2d95b4b43a83ced3e56984a7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4959199921544994312
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +422,7 @@ GameObject:
   - component: {fileID: 8261884286456954479}
   - component: {fileID: 5902686647106199753}
   - component: {fileID: 4039669152476586269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BottleHitbox
   m_TagString: Hitbox
   m_Icon: {fileID: 0}
@@ -452,7 +475,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -493,7 +516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4493454376880447481}
   - component: {fileID: 278510281745025066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LightSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -580,7 +603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6301895493636505214}
   - component: {fileID: 1609710049199478281}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BottleSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +620,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8261884286456954479}
@@ -670,6 +693,7 @@ GameObject:
   - component: {fileID: 1836975999695176701}
   - component: {fileID: 2665792175491916582}
   - component: {fileID: 4974034024705549225}
+  - component: {fileID: 8397697133303183456}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -785,7 +809,7 @@ MonoBehaviour:
   lightHitbox: {fileID: 1304762691975311013}
   heavyHitbox: {fileID: 61688098133972597}
   bottleHitbox: {fileID: 4959199921544994312}
-  animator: {fileID: 0}
+  animator: {fileID: 1391928865144614526}
   isAttacking: 0
 --- !u!114 &4974034024705549225
 MonoBehaviour:
@@ -800,11 +824,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInputActions: {fileID: -944628639613478452, guid: 9e6764fc689a6624c90858b9de98b37a, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 1391928865144614526}
   PlayerRb: {fileID: 2768465855603702319}
   ParentRb: {fileID: 0}
   cameraObject: {fileID: 0}
   attackScript: {fileID: 2665792175491916582}
+  hurtScript: {fileID: 8397697133303183456}
   moveSpeed: 5
   travelSpeed: 0.015
   maxHeight: 2
+--- !u!114 &8397697133303183456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8903464064188070249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ff4355e9287424b97324791a77d79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 1391928865144614526}
+  stunned: 0
+  stunnedTime: 0.2

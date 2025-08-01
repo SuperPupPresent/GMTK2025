@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject cameraObject;
 
     public PlayerAttack attackScript;
+    public PlayerHurt hurtScript;
 
     private InputAction jumpButton;
     private InputAction moveButton;
@@ -73,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
     private void movement(Vector2 moveAmt)
     {
         // Restricts movement when:
-        if (!attackScript.isAttacking)
+        if (!attackScript.isAttacking && !hurtScript.stunned)
         {
             animator.SetBool("isRunning", true);
             //Top of screen

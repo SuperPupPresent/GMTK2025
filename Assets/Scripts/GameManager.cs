@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Image healthBar;
     [SerializeField] Image manaBar;
     [SerializeField] GameObject gameOverScreen;
+    [SerializeField] PlayerHurt playerHurt;
 
     [SerializeField] private float manaRegenRate;
 
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(gameOver());
         }
-        setHealth(-1);
+        //setHealth(-1);
         //Debug.Log("Health: " + currentHealth);
         //Debug.Log("Mana: " + currentMana);
 
@@ -53,6 +54,10 @@ public class GameManager : MonoBehaviour
     public void setHealth(float healthChange)
     {
         currentHealth += healthChange;
+        if(healthChange < 0)
+        {
+            StartCoroutine(playerHurt.playerHurt());
+        }
         if(currentHealth > maxPlayerHealth)
         {
             currentHealth = maxPlayerHealth;

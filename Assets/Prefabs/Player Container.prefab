@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8156863}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.54509807}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 939afc2d95e0b414ab82b1f94d09c422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!1 &6834172686321336515
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,22 +373,6 @@ PrefabInstance:
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 9125371806778004875}
-    - target: {fileID: 6105938917258567317, guid: 2e9c5afc1ee1c2240bb29cb5bae0c862, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6301895493636505214, guid: 2e9c5afc1ee1c2240bb29cb5bae0c862, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6301895493636505214, guid: 2e9c5afc1ee1c2240bb29cb5bae0c862, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6301895493636505214, guid: 2e9c5afc1ee1c2240bb29cb5bae0c862, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8903464064188070249, guid: 2e9c5afc1ee1c2240bb29cb5bae0c862, type: 3}
       propertyPath: m_Name
       value: Player
