@@ -13,11 +13,15 @@ public class PlayerAttack : MonoBehaviour
     public GameObject recallHitbox; // Reference to the recall hitbox
     public GameObject playerContainer; // reference to container used for recall
 
-
     private GameManager gameManager; // Reference to the GameManager for health and mana management
     private PlayerMovement playerMovement; // Reference to the PlayerMovement script for player movement
     PlayerHealth health;
 
+    private AudioSource audioSource; // Reference to the AudioSource for playing sounds
+    public AudioClip attackSound; // Sound for attack
+    public AudioClip recallSound; // sound for special attacks
+    public AudioClip longerReverse; // sound for recall
+    public AudioClip bottleThrowSound; // sound for bottle throw
 
 
     private InputAction lightAttack;
@@ -36,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
 
     private float bottleThrowManaCost = 10f; // Mana cost for throwing a bottle
     private float recallManaCost = 50f; // Mana cost for recalling
-    private float recallSpeed = 0.0001f;
+    private float recallSpeed = 0.00001f;
 
     private void OnEnable()
     {
@@ -75,6 +79,10 @@ public class PlayerAttack : MonoBehaviour
             animator.SetBool("isLightRight", true);
         }
 
+        audioSource.clip = attackSound; // Set the attack sound
+        float pitch = Random.Range(0.9f, 1.1f); // Random pitch for the attack sound
+        audioSource.pitch = pitch; // Set the pitch for the attack sound
+        audioSource.Play(); // Play the attack sound
 
         lightHitbox.SetActive(true);
         yield return new WaitForSeconds(0.2f); // Wait for the duration of the light attack
@@ -94,6 +102,11 @@ public class PlayerAttack : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f); // Short delay before starting heavy attack
         
+        audioSource.clip = attackSound; // Set the attack sound
+        float pitch = Random.Range(0.6f, 0.8f); // Random pitch for the attack sound
+        audioSource.pitch = pitch; // Set the pitch for the attack sound
+        audioSource.Play(); // Play the attack sound
+
         heavyHitbox.SetActive(true); 
         yield return new WaitForSeconds(0.3f); // Wait for the duration of the heavy attack
 
@@ -115,12 +128,16 @@ public class PlayerAttack : MonoBehaviour
         bottleThrown = true; // Set the flag to true to prevent multiple throws
         bottleHitbox.SetActive(true); // Activate the bottle hitbox
 
+        audioSource.clip = bottleThrowSound; // Set the bottle throw sound
+        audioSource.pitch = 2.0f; // Set the pitch for the bottle throw sound
+        audioSource.Play(); // Play the bottle throw sound
+
         Vector3 throwdirection = new Vector3(moveButton.ReadValue<Vector2>().x, 0, moveButton.ReadValue<Vector2>().y).normalized;
         GameObject bottle = Instantiate(bottleHitbox, bottleHitbox.transform.position, Quaternion.identity);
         BottleThrow bottleScript = bottle.GetComponent<BottleThrow>();
         bottleScript.Launch(throwdirection, this.transform);
 
-        yield return new WaitForSeconds(0.1f); 
+        yield return new WaitForSeconds(0.5f); 
         isAttacking = false;
         animator.SetBool("isBottleThrow", false);
 
@@ -137,6 +154,10 @@ public class PlayerAttack : MonoBehaviour
 
         gameManager.setMana(-1 * recallManaCost); // Deduct mana cost for recall
 
+        audioSource.clip = longerReverse; // Set the recall sound
+        audioSource.pitch = 1.2f; // Set the pitch for the recall sound
+        audioSource.Play(); // Play the recall sound
+
         // move player to position from 2 seconds ago
         List<Vector3> recallPath = playerMovement.GetPositionsForRecall(2f); //get the list of positions
         for(int i = recallPath.Count -1; i >= 0; i--)
@@ -148,6 +169,11 @@ public class PlayerAttack : MonoBehaviour
         gameManager.setHealth(gameManager.currentHealth + 20); // Heal the player by 20 health points after recall
         animator.SetBool("isRecall", false);
         recallHitbox.SetActive(true); // Activate the recall hitbox
+
+        audioSource.clip = attackSound; // Set the attack sound for recall
+        audioSource.pitch = 0.5f;
+        audioSource.Play(); // Play the attack sound
+
         yield return new WaitForSeconds(0.5f); // Wait for the duration of the recall
         recallHitbox.SetActive(false); // Deactivate the recall hitbox
         isAttacking = false;
@@ -166,6 +192,7 @@ public class PlayerAttack : MonoBehaviour
         gameManager = FindFirstObjectByType<GameManager>(); // Find the GameManager in the scene
         playerMovement = FindFirstObjectByType<PlayerMovement>(); // Find the PlayerMovement script in the scene
         health = GetComponent<PlayerHealth>();
+        audioSource = GetComponent<AudioSource>(); // Get the AudioSource component for playing sounds
 
     }
 
