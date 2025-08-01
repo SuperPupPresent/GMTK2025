@@ -80,8 +80,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.5037566, y: 0.00000006005246}
-  m_Size: {x: 3.992505, y: 1.5000091}
+  m_Offset: {x: -0.43549922, y: 0.000000051915546}
+  m_Size: {x: 2.2723472, y: 1.5000219}
   m_Direction: 1
 --- !u!1 &3040148343645087426
 GameObject:
@@ -198,8 +198,8 @@ Transform:
   m_GameObject: {fileID: 3759722248517119824}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.34, y: 1.1, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 1.6984, y: 1.1, z: 0}
+  m_LocalScale: {x: 1.7166, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5505159981535768040}
@@ -462,7 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a34e2f6327d8a34b828b747c10b181a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemyHealth: 50
+  maxEnemyHealth: 150
   currentHealth: 0
   enemyAnimator: {fileID: 2444552400086719003}
   stunned: 0

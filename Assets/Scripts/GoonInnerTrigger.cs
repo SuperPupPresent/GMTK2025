@@ -20,6 +20,7 @@ public class GoonInnerTrigger : MonoBehaviour
         if (collision.tag == "Player")
         {
             goonScript.playerInner = false;
+            Debug.Log("Player Left attack range");
         }
     }
 }

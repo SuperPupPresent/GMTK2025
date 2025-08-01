@@ -31,6 +31,7 @@ public class PlayerAttack : MonoBehaviour
     public bool isAttacking = false; // Flag to prevent multiple attacks at once
     private bool bottleThrown = false; // Flag to check if the bottle has been thrown
     private bool isLightRightNext = true; // Flag used for left right alternation
+    bool readyingAttack = false;
 
     private float bottleThrowManaCost = 10f; // Mana cost for throwing a bottle
     private float recallManaCost = 50f; // Mana cost for recalling
@@ -170,10 +171,15 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         //if the light attack input is triggered, perform the light attack
-        if (lightAttack.WasPressedThisFrame() && !isAttacking)
+        if ((lightAttack.WasPressedThisFrame() || readyingAttack) && !isAttacking)
         {
-            Debug.Log("Light Attack Triggered");
+            //Debug.Log("Light Attack Triggered");
+            readyingAttack = false;
             StartCoroutine(PerformLightAttack());
+        }
+        else if (lightAttack.WasPressedThisFrame())
+        {
+            readyingAttack = true;
         }
 
         // Check for heavy attack input
@@ -198,14 +204,14 @@ public class PlayerAttack : MonoBehaviour
         // Check for grab input
         if (grab.WasPressedThisFrame())
         {
-            Debug.Log("Grab Triggered");
+            //Debug.Log("Grab Triggered");
             // Implement grab logic here
         }
 
         // Check for block input
         if (block.WasPressedThisFrame())
         {
-            Debug.Log("Block Triggered");
+            //Debug.Log("Block Triggered");
             // Implement block logic here
         }
 

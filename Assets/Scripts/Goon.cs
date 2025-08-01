@@ -12,8 +12,7 @@ public class Goon : MonoBehaviour
 
     [SerializeField] private float moveSpeed;
 
-    private float attackTime = 2f;
-    //private float stunnedTime = 2f;
+    private float timeBeforeAttack = 0.5f;
 
     public GoonHealth health;
 
@@ -23,9 +22,9 @@ public class Goon : MonoBehaviour
         hitBox.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Changes rotation
         if(player != null && health.currentHealth > 0)
         {
             if(player.transform.position.x > transform.position.x)
@@ -50,11 +49,11 @@ public class Goon : MonoBehaviour
         }
 
         //Attack state
-        if (playerInner && attackTime > 0 && !health.stunned)
+        if (playerInner && timeBeforeAttack > 0 && !health.stunned)
         {
             //Debug.Log("GOON ATTACK!");
-            attackTime -= Time.deltaTime;
-            if(attackTime <= 0)
+            timeBeforeAttack -= Time.deltaTime;
+            if(timeBeforeAttack <= 0)
             {
                 StartCoroutine(attack());
             }
@@ -75,13 +74,15 @@ public class Goon : MonoBehaviour
     IEnumerator attack()
     {
         hitBox.SetActive(true);
+        animator.Play("Punch One");
         yield return new WaitForSeconds(.25f);
         hitBox.SetActive(false);
         yield return new WaitForSeconds(.5f);
         hitBox.SetActive(true);
+        animator.Play("Punch Two");
         yield return new WaitForSeconds(.25f);
         hitBox.SetActive(false);
-        attackTime = 2f;
+        timeBeforeAttack = 1f;
     }
 
 

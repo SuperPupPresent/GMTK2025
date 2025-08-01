@@ -181,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
             // Debug.Log("SHEVA");
             PlayerRb.transform.localPosition = new Vector3(0, (Mathf.Pow(maxHeight, 2f) - Mathf.Pow(jumpSpeed, 2f)), 0);
             jumpSpeed += travelSpeed;
-            Debug.Log(jumpSpeed);
+            //Debug.Log(jumpSpeed);
 
             if (jumpSpeed >= 0)
             {

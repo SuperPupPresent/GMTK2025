@@ -30,6 +30,7 @@ public class GoonHealth : MonoBehaviour
             yield return new WaitForSeconds(stunnedTime);
             stunned = false;
             enemyAnimator.Play("Idle");
+            Debug.Log("Idling");
         }
     }
 

@@ -11,7 +11,7 @@ public class GoonOuterTrigger : MonoBehaviour
             goonScript.playerOuter = true;
             goonScript.player = collision.gameObject;
         }
-        Debug.Log("OUTER: " + collision.tag);
+        //Debug.Log("OUTER: " + collision.tag);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -20,6 +20,7 @@ public class GoonOuterTrigger : MonoBehaviour
         {
             goonScript.playerOuter = false;
             goonScript.player = null;
+            Debug.Log("Player is out of sight");
         }
     }
 }
