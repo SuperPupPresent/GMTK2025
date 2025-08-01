@@ -786,6 +786,7 @@ MonoBehaviour:
   heavyHitbox: {fileID: 61688098133972597}
   bottleHitbox: {fileID: 4959199921544994312}
   animator: {fileID: 0}
+  isAttacking: 0
 --- !u!114 &4974034024705549225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -803,6 +804,7 @@ MonoBehaviour:
   PlayerRb: {fileID: 2768465855603702319}
   ParentRb: {fileID: 0}
   cameraObject: {fileID: 0}
+  attackScript: {fileID: 2665792175491916582}
   moveSpeed: 5
   travelSpeed: 0.015
   maxHeight: 2

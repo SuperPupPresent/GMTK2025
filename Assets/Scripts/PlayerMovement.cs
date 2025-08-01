@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject cameraObject;
 
+    public PlayerAttack attackScript;
+
     private InputAction jumpButton;
     private InputAction moveButton;
     private Vector2 moveAmt;
@@ -71,39 +73,49 @@ public class PlayerMovement : MonoBehaviour
     private void movement(Vector2 moveAmt)
     {
         // Restricts movement when:
-
-        //Top of screen
-        if (ParentRb.transform.position.y >= 2)
+        if (!attackScript.isAttacking)
         {
-            ParentRb.linearVelocityY = Mathf.Clamp(moveAmt.y * moveSpeed, -moveSpeed, 0);
-            //ParentRb.linearVelocityX = (moveAmt.x * moveSpeed);
+            animator.SetBool("isRunning", true);
+            //Top of screen
+            if (ParentRb.transform.position.y >= 2)
+            {
+                ParentRb.linearVelocityY = Mathf.Clamp(moveAmt.y * moveSpeed, -moveSpeed, 0);
+                //ParentRb.linearVelocityX = (moveAmt.x * moveSpeed);
 
-        }
-        //Botton of screen
-        else if (ParentRb.transform.position.y <= -6.5)
-        {
-            ParentRb.linearVelocityY = Mathf.Clamp(moveAmt.y * moveSpeed, 0, moveSpeed);
-            //ParentRb.linearVelocityX = (moveAmt.x * moveSpeed);
+            }
+            //Botton of screen
+            else if (ParentRb.transform.position.y <= -6.5)
+            {
+                ParentRb.linearVelocityY = Mathf.Clamp(moveAmt.y * moveSpeed, 0, moveSpeed);
+                //ParentRb.linearVelocityX = (moveAmt.x * moveSpeed);
+            }
+            else
+            {
+                ParentRb.linearVelocityY = moveAmt.y * moveSpeed;
+            }
+            //Right of screen
+            if (ParentRb.transform.position.x >= CameraTransform.position.x + cameraRadius)
+            {
+                ParentRb.linearVelocityX = Mathf.Clamp(moveAmt.x * moveSpeed, -moveSpeed, 0);
+            }
+            //Left of screen
+            else if (ParentRb.transform.position.x <= CameraTransform.position.x - cameraRadius)
+            {
+                //ParentRb.linearVelocityY = moveAmt.y * moveSpeed;
+                ParentRb.linearVelocityX = Mathf.Clamp(moveAmt.x * moveSpeed, 0, moveSpeed);
+            }
+            else
+            {
+                ParentRb.linearVelocityX = moveAmt.x * moveSpeed;
+            }
         }
         else
         {
-            ParentRb.linearVelocityY = moveAmt.y * moveSpeed;
+            
+            ParentRb.linearVelocity = new Vector2(0,0);
+            animator.SetBool("isRunning", false);
         }
-        //Right of screen
-        if (ParentRb.transform.position.x >= CameraTransform.position.x + cameraRadius)
-        {
-            ParentRb.linearVelocityX = Mathf.Clamp(moveAmt.x * moveSpeed, -moveSpeed, 0);
-        }
-        //Left of screen
-        else if (ParentRb.transform.position.x <= CameraTransform.position.x - cameraRadius)
-        {
-            //ParentRb.linearVelocityY = moveAmt.y * moveSpeed;
-            ParentRb.linearVelocityX = Mathf.Clamp(moveAmt.x * moveSpeed, 0, moveSpeed);
-        }
-        else
-        {
-            ParentRb.linearVelocityX = moveAmt.x * moveSpeed;
-        }
+            
     }
 
     private void determineRotation()

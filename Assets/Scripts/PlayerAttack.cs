@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
 
     public Animator animator; // Reference to the Animator for player animations
 
-    private bool isAttacking = false; // Flag to prevent multiple attacks at once
+    public bool isAttacking = false; // Flag to prevent multiple attacks at once
     private bool bottleThrown = false; // Flag to check if the bottle has been thrown
     private bool isLightRightNext = true; // Flag used for left right alternation
 
@@ -51,6 +51,7 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator PerformLightAttack() 
     {
+        animator.SetBool("isRunning", false);
         isAttacking = true;
 
         if(isLightRightNext)
@@ -74,7 +75,8 @@ public class PlayerAttack : MonoBehaviour
     }
 
     private IEnumerator PerformHeavyAttack() 
-    { 
+    {
+        animator.SetBool("isRunning", false);
         animator.SetBool("isHeavy", true);
         isAttacking = true;
 
@@ -93,6 +95,7 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator PerformBottleThrow()
     {
+        animator.SetBool("isRunning", false);
         gameManager.currentMana -= bottleThrowManaCost; // Deduct mana cost for throwing a bottle
 
         bottleThrown = true; // Set the flag to true to prevent multiple throws
