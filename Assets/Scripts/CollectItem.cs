@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Collectable : MonoBehaviour
+public class CollectItem : MonoBehaviour
 {
+    //public Image healthBar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //healthBar.fillAmount = 1;
     }
 
     // Update is called once per frame
@@ -16,9 +18,9 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player") 
+        if (collision.tag == "Heart")
         {
-            Destroy(gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }
