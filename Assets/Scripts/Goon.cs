@@ -7,7 +7,7 @@ public class Goon : MonoBehaviour
     public bool playerOuter;
 
     public GameObject hitBox; //Attack from the goon
-    public GameObject player;
+    [HideInInspector] public GameObject player;
     public Animator animator;
 
     [SerializeField] private float moveSpeed;

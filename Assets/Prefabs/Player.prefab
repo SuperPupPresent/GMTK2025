@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 2266036611059357224}
   - component: {fileID: 8898540932681569752}
   - component: {fileID: 7248856609389792835}
-  - component: {fileID: 7366261952179887816}
+  - component: {fileID: 2629529682252615686}
   m_Layer: 6
   m_Name: LightHitbox
   m_TagString: Hitbox
@@ -229,6 +229,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2629529682252615686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304762691975311013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bb43cf10054724f90a4b6a7e312dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 10
 --- !u!1 &2244865737319456020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1019,7 @@ MonoBehaviour:
   heavyHitbox: {fileID: 61688098133972597}
   bottleHitbox: {fileID: 4959199921544994312}
   recallHitbox: {fileID: 2244865737319456020}
-  playerContainer: {fileID: 6834172686321336515, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
+  playerContainer: {fileID: 0}
   animator: {fileID: 1391928865144614526}
   isAttacking: 0
 --- !u!114 &4974034024705549225
@@ -1031,7 +1044,7 @@ MonoBehaviour:
   moveSpeed: 5
   travelSpeed: 0.015
   maxHeight: 2
-  playerContainer: {fileID: 6834172686321336515, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
+  playerContainer: {fileID: 0}
 --- !u!114 &8397697133303183456
 MonoBehaviour:
   m_ObjectHideFlags: 0
