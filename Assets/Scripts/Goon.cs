@@ -5,7 +5,6 @@ public class Goon : MonoBehaviour
 {
     public bool playerInner;
     public bool playerOuter;
-    public bool isStunned;
 
     public GameObject hitBox; //Attack from the goon
     public GameObject player;
@@ -14,7 +13,9 @@ public class Goon : MonoBehaviour
     [SerializeField] private float moveSpeed;
 
     private float attackTime = 2f;
-    private float stunnedTime = 2f;
+    //private float stunnedTime = 2f;
+
+    public GoonHealth health;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,7 +26,7 @@ public class Goon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player != null)
+        if(player != null && health.currentHealth > 0)
         {
             if(player.transform.position.x > transform.position.x)
             {
@@ -38,7 +39,7 @@ public class Goon : MonoBehaviour
         }
 
         //The move towards player state
-        if(playerOuter && !playerInner && !isStunned)
+        if(playerOuter && !playerInner && !health.stunned)
         {
             animator.SetBool("isWalking", true);
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed);
@@ -49,7 +50,7 @@ public class Goon : MonoBehaviour
         }
 
         //Attack state
-        if (playerInner && attackTime > 0 && !isStunned)
+        if (playerInner && attackTime > 0 && !health.stunned)
         {
             //Debug.Log("GOON ATTACK!");
             attackTime -= Time.deltaTime;
@@ -59,16 +60,16 @@ public class Goon : MonoBehaviour
             }
         }
 
-        //Stunned State
-        if (isStunned)
-        {
-            stunnedTime -= Time.deltaTime;
-            if(stunnedTime <= 0)
-            {
-                isStunned = false;
-                stunnedTime = 2f;
-            }
-        }
+        ////Stunned State
+        //if (isStunned)
+        //{
+        //    stunnedTime -= Time.deltaTime;
+        //    if(stunnedTime <= 0)
+        //    {
+        //        isStunned = false;
+        //        stunnedTime = 2f;
+        //    }
+        //}
     }
 
     IEnumerator attack()
@@ -85,12 +86,12 @@ public class Goon : MonoBehaviour
 
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Hitbox")
-        {
-            transform.position = new Vector3(0, 0, 0);
-            isStunned = true;
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Hitbox")
+    //    {
+    //        transform.position = new Vector3(0, 0, 0);
+    //        isStunned = true;
+    //    }
+    //}
 }

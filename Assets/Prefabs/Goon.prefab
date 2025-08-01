@@ -80,8 +80,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 5, y: 1.5}
+  m_Offset: {x: -0.5037566, y: 0.00000006005246}
+  m_Size: {x: 3.992505, y: 1.5000091}
   m_Direction: 1
 --- !u!1 &3040148343645087426
 GameObject:
@@ -330,9 +330,10 @@ GameObject:
   - component: {fileID: 5045564144536496886}
   - component: {fileID: 4080182121286673236}
   - component: {fileID: 7761158571331091585}
+  - component: {fileID: 7479275099324577394}
   m_Layer: 0
   m_Name: Goon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,11 +445,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInner: 0
   playerOuter: 0
-  isStunned: 0
   hitBox: {fileID: 3759722248517119824}
   player: {fileID: 0}
   animator: {fileID: 2444552400086719003}
   moveSpeed: 0.005
+  health: {fileID: 7479275099324577394}
+--- !u!114 &7479275099324577394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4138089712420133655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a34e2f6327d8a34b828b747c10b181a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnemyHealth: 50
+  currentHealth: 0
+  enemyAnimator: {fileID: 2444552400086719003}
+  stunned: 0
+  stunnedTime: 0.2
 --- !u!1 &8476220091004009720
 GameObject:
   m_ObjectHideFlags: 0

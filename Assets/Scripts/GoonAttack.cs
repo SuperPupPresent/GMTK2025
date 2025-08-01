@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//The attack sent out by the goons, attaches to the attack hitbox
 public class GoonAttack : MonoBehaviour
 {
     PlayerHealth playerHealth;
@@ -11,7 +12,7 @@ public class GoonAttack : MonoBehaviour
         {
             playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
             StartCoroutine(playerHealth.takeDamage(attackDamage));
-            Debug.Log("Hurt Player");
+            //Debug.Log("Hurt Player");
         }
     }
 }

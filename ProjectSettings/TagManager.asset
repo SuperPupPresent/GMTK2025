@@ -11,6 +11,7 @@ TagManager:
   - Heart
   - Mana
   - EnemyAttack
+  - Enemy
   layers:
   - Default
   - TransparentFX

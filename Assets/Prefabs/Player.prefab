@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 722127743150494745}
   - component: {fileID: 946169935965969724}
+  - component: {fileID: 6535690416733811747}
   m_Layer: 6
   m_Name: HeavyHitbox
   m_TagString: Hitbox
@@ -79,6 +80,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6535690416733811747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61688098133972597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bb43cf10054724f90a4b6a7e312dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 30
 --- !u!1 &1304762691975311013
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +104,7 @@ GameObject:
   - component: {fileID: 2266036611059357224}
   - component: {fileID: 8898540932681569752}
   - component: {fileID: 7248856609389792835}
+  - component: {fileID: 7366261952179887816}
   m_Layer: 6
   m_Name: LightHitbox
   m_TagString: Hitbox
@@ -214,6 +229,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7366261952179887816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304762691975311013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bb43cf10054724f90a4b6a7e312dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 10
 --- !u!1 &2677520519543132282
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,6 +450,7 @@ GameObject:
   - component: {fileID: 8261884286456954479}
   - component: {fileID: 5902686647106199753}
   - component: {fileID: 4039669152476586269}
+  - component: {fileID: 4907659147411020203}
   m_Layer: 6
   m_Name: BottleHitbox
   m_TagString: Hitbox
@@ -506,6 +535,19 @@ MonoBehaviour:
   speed: 30
   maxDistance: 8
   returnHeight: 1.5
+--- !u!114 &4907659147411020203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4959199921544994312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bb43cf10054724f90a4b6a7e312dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 10
 --- !u!1 &7842176259379640931
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,6 +887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ff4355e9287424b97324791a77d79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   playerAnimator: {fileID: 1391928865144614526}
   stunned: 0
   stunnedTime: 0.2
