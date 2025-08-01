@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Hitbox
   - New tag
+  - CollectItem
+  - Collectable
   layers:
   - Default
   - TransparentFX
