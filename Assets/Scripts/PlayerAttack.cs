@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
 
     private GameManager gameManager; // Reference to the GameManager for health and mana management
     private PlayerMovement playerMovement; // Reference to the PlayerMovement script for player movement
+    PlayerHealth health;
 
 
 
@@ -76,7 +77,7 @@ public class PlayerAttack : MonoBehaviour
 
 
         lightHitbox.SetActive(true);
-        yield return new WaitForSeconds(0.21f); // Wait for the duration of the light attack
+        yield return new WaitForSeconds(0.2f); // Wait for the duration of the light attack
         lightHitbox.SetActive(false); // Deactivate the hitbox
         isAttacking = false;
 
@@ -164,12 +165,17 @@ public class PlayerAttack : MonoBehaviour
 
         gameManager = FindFirstObjectByType<GameManager>(); // Find the GameManager in the scene
         playerMovement = FindFirstObjectByType<PlayerMovement>(); // Find the PlayerMovement script in the scene
+        health = GetComponent<PlayerHealth>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (health.stunned)
+        {
+            return;
+        }
         //if the light attack input is triggered, perform the light attack
         if ((lightAttack.WasPressedThisFrame() || readyingAttack) && !isAttacking)
         {

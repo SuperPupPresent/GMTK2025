@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject cameraObject;
 
     public PlayerAttack attackScript;
-    public PlayerHealth hurtScript;
+    public PlayerHealth health;
 
     private InputAction jumpButton;
     private InputAction moveButton;
@@ -57,8 +57,7 @@ public class PlayerMovement : MonoBehaviour
     {
         cameraRadius = cameraObject.GetComponent<Camera>().orthographicSize * cameraObject.GetComponent<Camera>().aspect;
         CameraTransform = cameraObject.GetComponent<Transform>();
-
-        
+        health = GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -104,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     private void movement(Vector2 moveAmt)
     {
         // Restricts movement when:
-        if (!attackScript.isAttacking && !hurtScript.stunned)
+        if (!attackScript.isAttacking && !health.stunned)
         {
             animator.SetBool("isRunning", true);
             //Top of screen
@@ -150,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void determineRotation()
     {
-        if (!attackScript.isAttacking)
+        if (!attackScript.isAttacking && !health.stunned)
         {
             if (moveAmt.x > 0)
             {

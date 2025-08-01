@@ -12,8 +12,9 @@ public class Goon : MonoBehaviour
 
     [SerializeField] private float moveSpeed;
 
-    private float timeBeforeAttack = 0.5f;
+    private float timeBeforeAttack = 1f;
     float stunTime = 0;
+    //bool idling = false;
 
     public GoonHealth health;
 
@@ -98,7 +99,7 @@ public class Goon : MonoBehaviour
         animator.Play("Punch Two");
         yield return new WaitForSeconds(.25f);
         hitBox.SetActive(false);
-        timeBeforeAttack = 1f;
+        timeBeforeAttack = 1.5f;
     }
 
 
