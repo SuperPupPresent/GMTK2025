@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayerHealth: 100
   maxPlayerMana: 100
+  manaRegenRate: 5
   currentHealth: 0
   currentMana: 0
 --- !u!1001 &4328381441153856116
@@ -57,6 +58,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1703345665085380108}
     m_Modifications:
+    - target: {fileID: 752233002194916459, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 757437472157726938, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311908678001823179, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3347306092336592585, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
+      propertyPath: m_Color.a
+      value: 0.54509807
+      objectReference: {fileID: 0}
     - target: {fileID: 3816892069339860651, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
       propertyPath: animator
       value: 
@@ -116,6 +133,10 @@ PrefabInstance:
     - target: {fileID: 7966189069254064938, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997763254375821374, guid: 6493074f6fe61a94a9c3f41853025264, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
