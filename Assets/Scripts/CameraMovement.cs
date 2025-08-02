@@ -7,6 +7,8 @@ public class CameraMovement : MonoBehaviour
     public bool lockHorizontal;
     private float xPos;
 
+    public float smoothSpeed = 5f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,7 +26,7 @@ public class CameraMovement : MonoBehaviour
 
         else
         {
-            xPos = playerTransform.position.x;
+            xPos = Mathf.Lerp(xPos, playerTransform.position.x, smoothSpeed * Time.deltaTime);
             transform.position = new Vector3(xPos, 0, -10);
             
         }
