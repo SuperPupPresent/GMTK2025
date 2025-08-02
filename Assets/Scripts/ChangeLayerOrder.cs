@@ -16,10 +16,11 @@ public class ChangeLayerOrder : MonoBehaviour
     {
         changeOrderInLayer();
     }
-
+    //B
     void changeOrderInLayer()
     {
         float yPos = -transform.position.y;
         sprite.sortingOrder = (int)yPos;
+        //Among
     }
 }
