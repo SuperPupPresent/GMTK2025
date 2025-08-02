@@ -94,8 +94,8 @@ public class GoonHealth : MonoBehaviour
         audioSource.volume = 0.8f;
         audioSource.Play(); // plays death sound
 
-        yield return new WaitForSeconds(stunnedTime);
-        Time.timeScale = 1f;
+        yield return new WaitForSeconds(3f);
+
     }
 
     void Knockback()
