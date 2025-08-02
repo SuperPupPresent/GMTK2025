@@ -37,6 +37,7 @@ public class PlayerAttack : MonoBehaviour
     private bool bottleThrown = false; // Flag to check if the bottle has been thrown
     private bool isLightRightNext = true; // Flag used for left right alternation
     bool readyingAttack = false;
+    public bool isImmune = false;
 
     private float bottleThrowManaCost = 10f; // Mana cost for throwing a bottle
     private float recallManaCost = 50f; // Mana cost for recalling
@@ -151,6 +152,7 @@ public class PlayerAttack : MonoBehaviour
         isAttacking = true;
         animator.SetBool("isRunning", false);
         animator.SetBool("isRecall", true);
+        isImmune = true;
 
         gameManager.setMana(-1 * recallManaCost); // Deduct mana cost for recall
 
@@ -176,6 +178,7 @@ public class PlayerAttack : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f); // Wait for the duration of the recall
         recallHitbox.SetActive(false); // Deactivate the recall hitbox
+        isImmune = false; // Reset the recall state
         isAttacking = false;
     }
 

@@ -198,9 +198,9 @@ Transform:
   m_GameObject: {fileID: 3759722248517119824}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6984, y: 1.1, z: 0}
-  m_LocalScale: {x: 1.7166, y: 3, z: 3}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 1, y: 1.1, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5505159981535768040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -450,6 +450,7 @@ MonoBehaviour:
   animator: {fileID: 2444552400086719003}
   moveSpeed: 0.05
   health: {fileID: 7479275099324577394}
+  attackSound: {fileID: 8300000, guid: c285f9ae8e6b5f74183d2abaf752655d, type: 3}
 --- !u!114 &7479275099324577394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +469,8 @@ MonoBehaviour:
   stunned: 0
   dead: 0
   stunnedTime: 0.2
+  hitbox: {fileID: 3759722248517119824}
+  deathSound: {fileID: 8300000, guid: 7685103699531c64483bc755fd399aee, type: 3}
 --- !u!1 &8476220091004009720
 GameObject:
   m_ObjectHideFlags: 0

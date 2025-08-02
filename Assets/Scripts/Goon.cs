@@ -18,10 +18,15 @@ public class Goon : MonoBehaviour
 
     public GoonHealth health;
 
+    // for sfx
+    private AudioSource audioSource;
+    public AudioClip attackSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         hitBox.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -90,15 +95,28 @@ public class Goon : MonoBehaviour
 
     IEnumerator attack()
     {
+        audioSource.clip = attackSound;
+        audioSource.volume = 0.8f;
+
+
         hitBox.SetActive(true);
         animator.Play("Punch One");
+        float pitch = Random.Range(0.9f, 1.1f);
+        audioSource.pitch = pitch;
+        audioSource.Play(); // plays attack sound
         yield return new WaitForSeconds(.25f);
         hitBox.SetActive(false);
+
         yield return new WaitForSeconds(.5f);
+
         hitBox.SetActive(true);
         animator.Play("Punch Two");
+        pitch = Random.Range(0.9f, 1.1f);
+        audioSource.pitch = pitch;
+        audioSource.Play();
         yield return new WaitForSeconds(.25f);
         hitBox.SetActive(false);
+
         timeBeforeAttack = 1.5f;
     }
 

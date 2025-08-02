@@ -120,8 +120,8 @@ Transform:
   m_GameObject: {fileID: 1304762691975311013}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 1.5, z: 0}
-  m_LocalScale: {x: 1.5, y: 2, z: 1}
+  m_LocalPosition: {x: 1, y: 1.5, z: 0}
+  m_LocalScale: {x: 2.8, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4493454376880447481}
@@ -196,7 +196,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3019718205632057040}
   - component: {fileID: 3802495129200165701}
-  m_Layer: 0
+  - component: {fileID: 4447432074094525622}
+  m_Layer: 6
   m_Name: RecallHitbox
   m_TagString: Hitbox
   m_Icon: {fileID: 0}
@@ -249,7 +250,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -265,6 +266,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4447432074094525622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2244865737319456020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bb43cf10054724f90a4b6a7e312dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 30
 --- !u!1 &2677520519543132282
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +318,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2677520519543132282}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -610,7 +624,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7842176259379640931}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -755,7 +769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5020353405534962196}
   - component: {fileID: 3921295018812138611}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RecallSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,6 +985,7 @@ MonoBehaviour:
   bottleThrowSound: {fileID: 8300000, guid: d9cd1733fd713164dbb63c43afd6ede7, type: 3}
   animator: {fileID: 1391928865144614526}
   isAttacking: 0
+  isImmune: 0
 --- !u!114 &4974034024705549225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,8 +1023,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   playerAnimator: {fileID: 1391928865144614526}
+  playerAttack: {fileID: 2665792175491916582}
   stunned: 0
-  stunnedTime: 0.2
+  deathSound: {fileID: 8300000, guid: 1d00bb34e8f54ba4fa017fc89b590c97, type: 3}
 --- !u!82 &1222461334420390438
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1017,7 +1033,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8903464064188070249}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
