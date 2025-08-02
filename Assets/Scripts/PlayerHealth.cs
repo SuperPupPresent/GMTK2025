@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public IEnumerator takeDamage(int damage)
+    public IEnumerator applyDamage(int damage)
     {
         if (!playerAttack.isImmune)
         {
@@ -34,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
             if (gameManager.currentHealth <= 0 && !isDead)
             {
                 playerAnimator.SetBool("isBlock", false);
-                StartCoroutine(playerDead());
+                playerDead();
                 yield return new WaitForEndOfFrame();
             }
             else if (!isDead)
@@ -48,17 +48,20 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public IEnumerator playerDead()
+    public void playerDead()
     {
         isDead = true;
         stunned = true;
-        Time.timeScale = 0.5f;
 
         audioSource.clip = deathSound;
         audioSource.Play(); //plays death sound
 
-        playerAnimator.Play("Dead");
-        yield return new WaitForSeconds(stunnedTime);
-        Time.timeScale = 1f;
+        playerAnimator.SetBool("isDead", true);
+        //playerAnimator.Play("Dead");
+    }
+
+    public void takeDamage(int damage)
+    {
+        StartCoroutine(applyDamage(damage));
     }
 }

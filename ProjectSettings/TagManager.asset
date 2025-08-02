@@ -12,6 +12,7 @@ TagManager:
   - Mana
   - EnemyAttack
   - Enemy
+  - GoonSpawner
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 4243351403
+    locked: 0
+  - name: Shadows
+    uniqueID: 2410528257
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

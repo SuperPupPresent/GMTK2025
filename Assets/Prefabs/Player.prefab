@@ -861,6 +861,7 @@ GameObject:
   - component: {fileID: 4974034024705549225}
   - component: {fileID: 8397697133303183456}
   - component: {fileID: 1222461334420390438}
+  - component: {fileID: 4592964182101247791}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1005,7 +1006,6 @@ MonoBehaviour:
   ParentRb: {fileID: 0}
   cameraObject: {fileID: 0}
   attackScript: {fileID: 2665792175491916582}
-  health: {fileID: 0}
   moveSpeed: 5
   travelSpeed: 0.015
   maxHeight: 2
@@ -1125,3 +1125,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4592964182101247791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8903464064188070249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566e73d15e1ce3b41928435830deaa77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 6105938917258567317}

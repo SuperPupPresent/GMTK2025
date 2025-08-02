@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject cameraObject;
 
     public PlayerAttack attackScript;
-    public PlayerHealth health;
+    PlayerHealth health;
 
     private InputAction jumpButton;
     private InputAction moveButton;
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int moveSpeed = 5;
     [SerializeField] float travelSpeed = .5f;
     [SerializeField] float maxHeight = 5f;
-
+     // Among us
     private bool facingRight = true;
     private bool isJumping = false;
     private float jumpSpeed;
@@ -198,4 +198,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+
 }

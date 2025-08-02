@@ -11,8 +11,7 @@ public class PlayerHitbox : MonoBehaviour
         if (collision.gameObject.tag == "Enemy") 
         {
             goonHealth = collision.gameObject.GetComponent<GoonHealth>();
-            StartCoroutine(goonHealth.takeDamage(attackDamage));
-            //Debug.Log("Hurt Goon");
+            goonHealth.takeDamage(attackDamage);
         }
     }
 }

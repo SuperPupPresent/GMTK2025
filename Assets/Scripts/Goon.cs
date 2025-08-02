@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.U2D;
 
 public class Goon : MonoBehaviour
 {
@@ -36,16 +37,19 @@ public class Goon : MonoBehaviour
             StopAllCoroutines();
             return;
         }
+
         //Changes rotation
         if(player != null && health.currentHealth > 0)
         {
             if(player.transform.position.x > transform.position.x)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
+                health.facingRight = true;
             }
             else
             {
                 transform.rotation = Quaternion.Euler(0, -180, 0);
+                health.facingRight = false;
             }
         }
 
@@ -81,16 +85,6 @@ public class Goon : MonoBehaviour
                 stunTime = 0;
             }
         }
-        ////Stunned State
-        //if (isStunned)
-        //{
-        //    stunnedTime -= Time.deltaTime;
-        //    if(stunnedTime <= 0)
-        //    {
-        //        isStunned = false;
-        //        stunnedTime = 2f;
-        //    }
-        //}
     }
 
     IEnumerator attack()
@@ -119,15 +113,4 @@ public class Goon : MonoBehaviour
 
         timeBeforeAttack = 1.5f;
     }
-
-
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.tag == "Hitbox")
-    //    {
-    //        transform.position = new Vector3(0, 0, 0);
-    //        isStunned = true;
-    //    }
-    //}
 }
