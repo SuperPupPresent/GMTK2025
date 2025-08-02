@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public float currentHealth;
     [HideInInspector] public float currentMana;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

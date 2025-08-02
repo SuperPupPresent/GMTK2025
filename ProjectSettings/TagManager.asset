@@ -12,6 +12,7 @@ TagManager:
   - Mana
   - EnemyAttack
   - Enemy
+  - GoonSpawner
   layers:
   - Default
   - TransparentFX
