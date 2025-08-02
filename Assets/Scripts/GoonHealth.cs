@@ -11,6 +11,11 @@ public class GoonHealth : MonoBehaviour
     public float stunnedTime;
     public GameObject hitbox; //Attack from the goon
 
+    float damageBuildup;
+    public float recoverTimeMultiplier;
+    public float knockBackLimit;
+
+
     //for sfx
     private AudioSource audioSource;
     public AudioClip deathSound;
@@ -21,6 +26,15 @@ public class GoonHealth : MonoBehaviour
         stunned = false;
         dead = false;
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        //Enemy slowly recovers
+        if (damageBuildup > 0)
+        {
+            damageBuildup -= Time.deltaTime * recoverTimeMultiplier;
+        }
     }
 
     public IEnumerator takeDamage(int damage)
@@ -34,6 +48,11 @@ public class GoonHealth : MonoBehaviour
         }
         else if (!dead)
         {
+            damageBuildup += damage;
+            if(damageBuildup >= knockBackLimit)
+            {
+                Knockback();
+            }
             stunned = true;
             enemyAnimator.Play("Hurt");
             yield return new WaitForSeconds(stunnedTime);
@@ -54,5 +73,11 @@ public class GoonHealth : MonoBehaviour
 
         yield return new WaitForSeconds(stunnedTime);
         Time.timeScale = 1f;
+    }
+
+    public void Knockback()
+    {
+
+        damageBuildup = 0;
     }
 }

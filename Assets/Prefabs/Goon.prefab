@@ -80,8 +80,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.43549922, y: 0.000000051915546}
-  m_Size: {x: 2.2723472, y: 1.5000219}
+  m_Offset: {x: -0.43549913, y: 0.9407838}
+  m_Size: {x: 2.2723489, y: 0.6529551}
   m_Direction: 1
 --- !u!1 &3040148343645087426
 GameObject:
@@ -198,8 +198,8 @@ Transform:
   m_GameObject: {fileID: 3759722248517119824}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1.1, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0.8642, y: 1.668, z: 0}
+  m_LocalScale: {x: 2.7285, y: 1.8642, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5505159981535768040}
@@ -471,6 +471,8 @@ MonoBehaviour:
   dead: 0
   stunnedTime: 0.2
   hitbox: {fileID: 3759722248517119824}
+  recoverTimeMultiplier: 0
+  knockBackLimit: 0
   deathSound: {fileID: 8300000, guid: 7685103699531c64483bc755fd399aee, type: 3}
 --- !u!82 &3722777905858845759
 AudioSource:
