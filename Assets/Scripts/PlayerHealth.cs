@@ -26,9 +26,14 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!playerAttack.isImmune)
         {
+            if (playerAttack.isBlocking)
+            {
+                damage = damage/2;
+            }
             gameManager.setHealth(-damage);
             if (gameManager.currentHealth <= 0 && !isDead)
             {
+                playerAnimator.SetBool("isBlock", false);
                 StartCoroutine(playerDead());
                 yield return new WaitForEndOfFrame();
             }
@@ -41,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
                 playerAnimator.Play("Idle");
             }
         }
+
         
     }
 

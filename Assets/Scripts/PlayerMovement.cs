@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     private void movement(Vector2 moveAmt)
     {
         // Restricts movement when:
-        if (!attackScript.isAttacking && !health.stunned)
+        if (!attackScript.isAttacking && !health.stunned && !attackScript.isBlocking)
         {
             animator.SetBool("isRunning", true);
             //Top of screen
@@ -149,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void determineRotation()
     {
-        if (!attackScript.isAttacking && !health.stunned)
+        if (!attackScript.isAttacking && !health.stunned && !attackScript.isBlocking)
         {
             if (moveAmt.x > 0)
             {

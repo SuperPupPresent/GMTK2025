@@ -38,6 +38,7 @@ public class PlayerAttack : MonoBehaviour
     private bool isLightRightNext = true; // Flag used for left right alternation
     bool readyingAttack = false;
     public bool isImmune = false;
+    public bool isBlocking = false; // Flag to check if the player is blocking
 
     private float bottleThrowManaCost = 10f; // Mana cost for throwing a bottle
     private float recallManaCost = 50f; // Mana cost for recalling
@@ -61,7 +62,7 @@ public class PlayerAttack : MonoBehaviour
         heavyAttack = InputSystem.actions.FindAction("heavy"); // X or North Button
         specialAttack = InputSystem.actions.FindAction("special"); // C or East Button
         grab = InputSystem.actions.FindAction("grab"); // A or Shoulder Button
-        block = InputSystem.actions.FindAction("block"); // S or Trigger Button
+        block = InputSystem.actions.FindAction("block"); // Shift or Trigger Button
         moveButton = InputSystem.actions.FindAction("Move"); // arrow keys or joystick
     }
 
@@ -245,11 +246,20 @@ public class PlayerAttack : MonoBehaviour
         }
 
         // Check for block input
-        if (block.WasPressedThisFrame())
+        if (block.IsPressed())
         {
-            //Debug.Log("Block Triggered");
-            // Implement block logic here
+            Debug.Log("Block Triggered");
+            animator.SetBool("isRunning", false);
+            isBlocking = true;
+            animator.SetBool("isBlock", true);
         }
+        else 
+        {
+            animator.SetBool("isBlock", false);
+            isBlocking = false; 
+        }
+            
+        
 
     }
 }
