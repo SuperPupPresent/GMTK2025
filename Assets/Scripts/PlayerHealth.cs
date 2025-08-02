@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
     public Animator playerAnimator;
     public PlayerAttack playerAttack;
     public bool stunned;
-    private bool isDead = false;
+    public bool isDead = false;
     private float stunnedTime = 0.2f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -46,8 +46,6 @@ public class PlayerHealth : MonoBehaviour
                 playerAnimator.Play("Idle");
             }
         }
-
-        
     }
 
     public IEnumerator playerDead()
