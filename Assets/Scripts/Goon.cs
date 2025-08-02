@@ -44,10 +44,12 @@ public class Goon : MonoBehaviour
             if(player.transform.position.x > transform.position.x)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
+                health.facingRight = true;
             }
             else
             {
                 transform.rotation = Quaternion.Euler(0, -180, 0);
+                health.facingRight = false;
             }
         }
 

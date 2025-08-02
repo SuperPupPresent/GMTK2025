@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GoonHealth : MonoBehaviour
@@ -9,6 +10,7 @@ public class GoonHealth : MonoBehaviour
     public bool stunned;
     public bool dead;
     public float stunnedTime;
+    public bool facingRight;
     float fallBackTime;
     public GameObject hitbox; //Attack from the goon
 
@@ -24,10 +26,11 @@ public class GoonHealth : MonoBehaviour
 
     void Start()
     {
+        facingRight = false;
         currentHealth = maxEnemyHealth;
         stunned = false;
         dead = false;
-        fallBackTime = 1f;
+        fallBackTime = 0.5f;
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -92,7 +95,14 @@ public class GoonHealth : MonoBehaviour
     {
         Debug.Log("KnockedBack!!");
         damageBuildup = 0;
-        rb.AddForce(Vector2.right * 5, ForceMode2D.Impulse);
+        if(!facingRight)
+        {
+            rb.AddForce(new Vector2(50, 0), ForceMode2D.Impulse);
+        }
+        else
+        {
+            rb.AddForce(new Vector2(-50, 0), ForceMode2D.Impulse);
+        }
     }
 
     public void takeDamage(int damage)
