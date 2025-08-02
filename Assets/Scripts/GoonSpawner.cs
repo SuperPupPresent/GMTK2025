@@ -90,17 +90,17 @@ public class GoonSpawner : MonoBehaviour
         if (!wave2 && !wave3 && goon1.GetComponent<GoonHealth>().dead && goon2.GetComponent<GoonHealth>().dead && goon3.GetComponent<GoonHealth>().dead && goon4.GetComponent<GoonHealth>().dead)
         {
             cameraMovement.lockHorizontal = false; // Unlock camera movement if all wave 1 goons are dead and there are no other waves
-            StartCoroutine(WaitABit(gameObject, 2f));
+            StartCoroutine(WaitABit(gameObject, 3f));
         }
         if (!wave3 && goon5.GetComponent<GoonHealth>().dead && goon6.GetComponent<GoonHealth>().dead && goon7.GetComponent<GoonHealth>().dead && goon8.GetComponent<GoonHealth>().dead && goon9.GetComponent<GoonHealth>().dead && goon10.GetComponent<GoonHealth>().dead)
         {
             cameraMovement.lockHorizontal = false; // Unlock camera movement if all wave 2 goons are dead and there are no other waves
-            StartCoroutine(WaitABit(gameObject, 2f));
+            StartCoroutine(WaitABit(gameObject, 3f));
         }
         if (goon11.GetComponent<GoonHealth>().dead && goon12.GetComponent<GoonHealth>().dead && goon13.GetComponent<GoonHealth>().dead && goon14.GetComponent<GoonHealth>().dead && goon15.GetComponent<GoonHealth>().dead && goon16.GetComponent<GoonHealth>().dead)
         {
             cameraMovement.lockHorizontal = false; // Unlock camera movement if all wave 3 goons are dead
-            StartCoroutine(WaitABit(gameObject, 2f));
+            StartCoroutine(WaitABit(gameObject, 3f));
         }
     }
 
