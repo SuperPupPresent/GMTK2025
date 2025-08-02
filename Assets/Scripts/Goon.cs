@@ -83,16 +83,6 @@ public class Goon : MonoBehaviour
                 stunTime = 0;
             }
         }
-        ////Stunned State
-        //if (isStunned)
-        //{
-        //    stunnedTime -= Time.deltaTime;
-        //    if(stunnedTime <= 0)
-        //    {
-        //        isStunned = false;
-        //        stunnedTime = 2f;
-        //    }
-        //}
     }
 
     IEnumerator attack()

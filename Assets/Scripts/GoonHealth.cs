@@ -9,11 +9,13 @@ public class GoonHealth : MonoBehaviour
     public bool stunned;
     public bool dead;
     public float stunnedTime;
+    float fallBackTime;
     public GameObject hitbox; //Attack from the goon
 
     float damageBuildup;
     public float recoverTimeMultiplier;
     public float knockBackLimit;
+    Rigidbody2D rb;
 
 
     //for sfx
@@ -25,7 +27,9 @@ public class GoonHealth : MonoBehaviour
         currentHealth = maxEnemyHealth;
         stunned = false;
         dead = false;
+        fallBackTime = 1f;
         audioSource = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -37,29 +41,38 @@ public class GoonHealth : MonoBehaviour
         }
     }
 
-    public IEnumerator takeDamage(int damage)
+    public IEnumerator applyDamage(int damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0 && !dead)
         {
             hitbox.SetActive(false); // Disable hitbox when dead
             StartCoroutine(Dead());
-            yield return new WaitForEndOfFrame();
         }
         else if (!dead)
         {
             damageBuildup += damage;
             if(damageBuildup >= knockBackLimit)
             {
-                Knockback();
+                stunned = true;
+                Debug.Log("KnockedBack!!");
+                damageBuildup = 0;
+                rb.AddForce(Vector2.right * 5, ForceMode2D.Impulse);
+                yield return new WaitForSeconds(fallBackTime);
+                Debug.Log("Reset Velocity");
+                rb.linearVelocity = Vector2.zero;
+                stunned = false;
             }
-            stunned = true;
-            enemyAnimator.Play("Hurt");
-            yield return new WaitForSeconds(stunnedTime);
-            stunned = false;
-            enemyAnimator.Play("Idle");
-            Debug.Log("Idling");
+            else
+            {
+                stunned = true;
+                enemyAnimator.Play("Hurt");
+                yield return new WaitForSeconds(stunnedTime);
+                stunned = false;
+                enemyAnimator.Play("Idle");
+            }
         }
+        yield return null;
     }
 
     public IEnumerator Dead()
@@ -77,7 +90,13 @@ public class GoonHealth : MonoBehaviour
 
     public void Knockback()
     {
-
+        Debug.Log("KnockedBack!!");
         damageBuildup = 0;
+        rb.AddForce(Vector2.right * 5, ForceMode2D.Impulse);
+    }
+
+    public void takeDamage(int damage)
+    {
+        StartCoroutine(applyDamage(damage));
     }
 }

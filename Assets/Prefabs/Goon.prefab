@@ -156,8 +156,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1884439039
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.54509807}
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622843ebdddb9014bb16c99e2c15f8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 1
+  attackDamage: 10
 --- !u!1 &4138089712420133655
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,14 +368,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4138089712420133655}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -472,8 +472,8 @@ MonoBehaviour:
   dead: 0
   stunnedTime: 0.2
   hitbox: {fileID: 3759722248517119824}
-  recoverTimeMultiplier: 0
-  knockBackLimit: 0
+  recoverTimeMultiplier: 2
+  knockBackLimit: 50
   deathSound: {fileID: 8300000, guid: 7685103699531c64483bc755fd399aee, type: 3}
 --- !u!82 &3722777905858845759
 AudioSource:

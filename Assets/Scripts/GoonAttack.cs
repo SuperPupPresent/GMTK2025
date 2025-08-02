@@ -11,7 +11,7 @@ public class GoonAttack : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            StartCoroutine(playerHealth.takeDamage(attackDamage));
+            playerHealth.takeDamage(attackDamage);
             //Debug.Log("Hurt Player");
         }
     }
