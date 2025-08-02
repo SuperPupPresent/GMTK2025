@@ -17,6 +17,9 @@ public class GoonHealth : MonoBehaviour
     float damageBuildup;
     public float recoverTimeMultiplier;
     public float knockBackLimit;
+    float knockBackPower;
+    public float knockBackTime;
+    bool knockedBack = false;
     Rigidbody2D rb;
 
 
@@ -26,6 +29,7 @@ public class GoonHealth : MonoBehaviour
 
     void Start()
     {
+        knockBackPower = 15;
         facingRight = false;
         currentHealth = maxEnemyHealth;
         stunned = false;
@@ -33,6 +37,7 @@ public class GoonHealth : MonoBehaviour
         fallBackTime = 0.5f;
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
+        knockBackTime = 0.5f;
     }
 
     private void Update()
@@ -42,9 +47,25 @@ public class GoonHealth : MonoBehaviour
         {
             damageBuildup -= Time.deltaTime * recoverTimeMultiplier;
         }
+        if(damageBuildup >= knockBackLimit)
+        {
+            Knockback();
+            
+        }
+        if (knockedBack)
+        {
+            knockBackTime -= Time.deltaTime;
+            if(knockBackTime <= 0)
+            {
+                knockedBack = false;
+                knockBackTime = 0.5f;
+                rb.linearVelocity = Vector2.zero;
+                enemyAnimator.SetBool("isKnocked", false);
+            }
+        }
     }
 
-    public IEnumerator applyDamage(int damage)
+    IEnumerator applyDamage(int damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0 && !dead)
@@ -52,28 +73,14 @@ public class GoonHealth : MonoBehaviour
             hitbox.SetActive(false); // Disable hitbox when dead
             StartCoroutine(Dead());
         }
-        else if (!dead)
+        else if (!dead && !knockedBack)
         {
             damageBuildup += damage;
-            if(damageBuildup >= knockBackLimit)
-            {
-                stunned = true;
-                Debug.Log("KnockedBack!!");
-                damageBuildup = 0;
-                rb.AddForce(Vector2.right * 5, ForceMode2D.Impulse);
-                yield return new WaitForSeconds(fallBackTime);
-                Debug.Log("Reset Velocity");
-                rb.linearVelocity = Vector2.zero;
-                stunned = false;
-            }
-            else
-            {
-                stunned = true;
-                enemyAnimator.Play("Hurt");
-                yield return new WaitForSeconds(stunnedTime);
-                stunned = false;
-                enemyAnimator.Play("Idle");
-            }
+            stunned = true;
+            enemyAnimator.Play("Hurt");
+            yield return new WaitForSeconds(stunnedTime);
+            stunned = false;
+            enemyAnimator.Play("Idle");
         }
         yield return null;
     }
@@ -81,7 +88,7 @@ public class GoonHealth : MonoBehaviour
     public IEnumerator Dead()
     {
         dead = true;
-        enemyAnimator.Play("Dead");
+        enemyAnimator.SetBool("isDead", true);
 
         audioSource.clip = deathSound;
         audioSource.volume = 0.8f;
@@ -91,17 +98,18 @@ public class GoonHealth : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Knockback()
+    void Knockback()
     {
-        Debug.Log("KnockedBack!!");
+        knockedBack = true;
         damageBuildup = 0;
+        enemyAnimator.SetBool("isKnocked", true);
         if(!facingRight)
         {
-            rb.AddForce(new Vector2(50, 0), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(knockBackPower, 0), ForceMode2D.Impulse);
         }
         else
         {
-            rb.AddForce(new Vector2(-50, 0), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(-knockBackPower, 0), ForceMode2D.Impulse);
         }
     }
 
