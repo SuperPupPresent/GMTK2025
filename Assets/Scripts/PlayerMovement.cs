@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject cameraObject;
 
     public PlayerAttack attackScript;
-    public PlayerHealth health;
+    PlayerHealth health;
 
     private InputAction jumpButton;
     private InputAction moveButton;
@@ -198,4 +198,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+
 }

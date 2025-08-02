@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.U2D;
 
 public class Goon : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class Goon : MonoBehaviour
             StopAllCoroutines();
             return;
         }
+
         //Changes rotation
         if(player != null && health.currentHealth > 0)
         {
@@ -119,15 +121,4 @@ public class Goon : MonoBehaviour
 
         timeBeforeAttack = 1.5f;
     }
-
-
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.tag == "Hitbox")
-    //    {
-    //        transform.position = new Vector3(0, 0, 0);
-    //        isStunned = true;
-    //    }
-    //}
 }
