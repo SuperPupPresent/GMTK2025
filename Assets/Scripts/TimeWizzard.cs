@@ -6,6 +6,7 @@ public class TimeWizzard : MonoBehaviour
     public Rigidbody2D rb;
     public Transform player;
     public GameObject clockProjectile;
+    public Transform timeAreana;
 
     private int currentDash = 0;
     private bool checkingState = true;
@@ -22,7 +23,7 @@ public class TimeWizzard : MonoBehaviour
     private int desiredNumberOfRotations;
     public int currentNumberOfRotations;
 
-    private int currentAttack = 2;
+    private int currentAttack;
 
     private bool isEnvelope;
 
@@ -99,7 +100,7 @@ public class TimeWizzard : MonoBehaviour
     void standardMovement()
     {
         angle += moveSpeed * Time.deltaTime;
-        transform.position = new Vector3(1.5f* Mathf.Cos(angle), Mathf.Sin(-angle) -.5f, 0) * radius;
+        transform.position = new Vector3((1.5f* Mathf.Cos(angle)) + 20f, Mathf.Sin(-angle) -.5f, 0) * radius;
     }
 
     //TODO: Make it so the it dashes three times along with implement other attacks
@@ -227,7 +228,7 @@ public class TimeWizzard : MonoBehaviour
             isBegining = false;
             animator.SetBool("startEnvelope", true);
             animator.SetBool("endEnvelope", false);
-            transform.position = new Vector2(0, player.transform.position.y - 4);
+            transform.position = new Vector2(player.transform.position.x, player.transform.position.y - 4);
             isEnvelope = true;
         }
 
