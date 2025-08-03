@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4389194394595573640}
   - component: {fileID: -3947091125294081425}
+  - component: {fileID: 1280920793929322967}
   m_Layer: 0
   m_Name: BossArena
   m_TagString: Untagged
@@ -80,6 +81,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 10.979078}
   m_EdgeRadius: 0
+--- !u!114 &1280920793929322967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5240513097592962924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 007e188854ddac24baad31979ac55b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraMovement: {fileID: 0}
+  boss: {fileID: 5240513097592962924}
 --- !u!1 &6666305802348288479
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,11 +4,19 @@ public class TimeWizzard : MonoBehaviour
 {
     public Animator animator;
     public Rigidbody2D rb;
+    public Transform player;
 
     private int currentDash = 0;
     private bool checkingState = true;
 
     private Vector3 startingPosition;
+    private Vector3 playerStartingPosition;
+    private bool isDashing = false;
+
+    [SerializeField] float dashSpeed = 10;
+
+    [SerializeField] float moveSpeed, radius;
+    float angle;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,14 +27,22 @@ public class TimeWizzard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dataAttack();
+        facePlayer();
+        standardMovement();
+        //dashAttack();
         Debug.Log(currentDash);
         //animator.SetBool("startDash", true);
     }
 
 
+    void standardMovement()
+    {
+        angle += moveSpeed * Time.deltaTime;
+        transform.position = new Vector3(1.5f* Mathf.Cos(angle), Mathf.Sin(-angle) -.5f, 0) * radius;
+    }
+
     //TODO: Make it so the it dashes three times along with implement other attacks
-    void dataAttack()
+    void dashAttack()
     {
         if(currentDash == 0)
         {
@@ -38,8 +54,10 @@ public class TimeWizzard : MonoBehaviour
 
         if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
         {
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("dashReset"))
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("dashReset") && checkingState)
             {
+                playerStartingPosition = player.position;
+                checkingState = false;
                 animator.SetBool("startDash", true);
                 transform.position = startingPosition;
                 currentDash++;
@@ -48,8 +66,30 @@ public class TimeWizzard : MonoBehaviour
             {
                 clockDash();
             }
+            
+        }
 
-            checkingState = false;
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+        {
+            currentDash = 0;
+            animator.SetBool("finishDash", false);
+        }
+        
+        if ((transform.position - startingPosition).magnitude > 20)
+        {
+            isDashing = false;
+            checkingState = true;
+            rb.linearVelocity = new Vector2(0, 0);
+
+            if (currentDash >= 3)
+            {
+                animator.SetBool("finishDash", true);
+            }
+            else
+            {
+                //Debug.Log("reset");
+                animator.SetBool("startDash", false);
+            }
         }
 
 
@@ -57,25 +97,25 @@ public class TimeWizzard : MonoBehaviour
 
     void clockDash()
     {
-        rb.linearVelocity = new Vector2(5, 0);
-        if(transform.position.x > startingPosition.x + 10)
+        isDashing = true;
+        rb.linearVelocity = dashSpeed * (playerStartingPosition - startingPosition);
+        //transform.localEulerAngles = player.position - startingPosition;
+    }
+
+    void facePlayer()
+    {
+        if (!isDashing)
         {
-            rb.linearVelocity = new Vector2(0, 0);
-            
-            if(currentDash >= 3)
+            if (player.transform.position.x < transform.position.x)
             {
-                animator.SetBool("finishDash", true);
-                currentDash = -1;
+                transform.rotation = Quaternion.Euler(0, -180, 0);
             }
             else
             {
-                animator.SetBool("startDash", false);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
+            
     }
 
-    void clockDashReset()
-    {
-
-    }
 }
