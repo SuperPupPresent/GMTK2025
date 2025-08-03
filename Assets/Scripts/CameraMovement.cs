@@ -6,10 +6,14 @@ public class CameraMovement : MonoBehaviour
 {
     public Transform playerTransform;
 
+    public bool zoom = false;
     public bool lockHorizontal;
     private float xPos;
 
     public float smoothSpeed = 5f;
+
+    public float zoomSpeed = 2f;
+    public float zoomSize = 12f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,8 +41,20 @@ public class CameraMovement : MonoBehaviour
             transform.position = new Vector3(xPos, 0, -10);
             
         }
+
+        if (zoom)
+        {
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomSize, zoomSpeed * Time.deltaTime);
+        }
         
     }
+
+    public void ZoomOut()
+    {
+        //zoom out the camera
+        zoom = true;
+    }
+
     IEnumerator ContainPlayer()
     {
         lockHorizontal = true;
