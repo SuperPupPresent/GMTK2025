@@ -29,6 +29,7 @@ public class WizardHealth : MonoBehaviour
         dead = true;
         enemyAnimator.SetBool("die", true);
 
+        audioSource.pitch = 1.0f;
         audioSource.clip = deathSound;
         audioSource.volume = 0.8f;
         audioSource.Play(); // plays death sound
@@ -49,6 +50,7 @@ public class WizardHealth : MonoBehaviour
         }
         else if (!dead)
         {
+            audioSource.pitch = 1.0f;
             audioSource.clip = hurtSound;
             //audioSource.volume = 0.8f;
             audioSource.Play(); 
