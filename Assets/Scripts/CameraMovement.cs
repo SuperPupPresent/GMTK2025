@@ -1,3 +1,5 @@
+using PlasticGui.Help;
+using System.Collections;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -16,8 +18,13 @@ public class CameraMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
+        //Player can't walk out of bounds
+        if(playerTransform.position.x < -10)
+        {
+            StartCoroutine(ContainPlayer());
+        }
 
         if (lockHorizontal)
         {
@@ -32,5 +39,10 @@ public class CameraMovement : MonoBehaviour
         }
         
     }
-
+    IEnumerator ContainPlayer()
+    {
+        lockHorizontal = true;
+        yield return new WaitUntil(() => playerTransform.position.x < -10);
+        lockHorizontal = false;
+    }
 }
