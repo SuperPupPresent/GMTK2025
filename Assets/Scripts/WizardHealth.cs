@@ -1,5 +1,7 @@
 using System.Collections;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WizardHealth : MonoBehaviour
 {
@@ -7,7 +9,8 @@ public class WizardHealth : MonoBehaviour
     [HideInInspector] public float currentHealth;
 
     public bool dead;
-    Animator animator;
+    public Animator enemyAnimator;
+    public Animator turtleAnimator;
     private AudioSource audioSource;
     public AudioClip deathSound;
     public AudioClip hurtSound;
@@ -22,14 +25,16 @@ public class WizardHealth : MonoBehaviour
     public IEnumerator Dead()
     {
         dead = true;
-        animator.SetBool("isDead", true);
+        enemyAnimator.SetBool("isDead", true);
 
         audioSource.clip = deathSound;
         audioSource.volume = 0.8f;
         audioSource.Play(); // plays death sound
 
         yield return new WaitForSeconds(3f);
-        Destroy(gameObject);
+        turtleAnimator.SetBool("isSaved", true);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Credits");
     }
 
     public void takeDamage(int damage)
