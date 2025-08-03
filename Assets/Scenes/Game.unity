@@ -800,6 +800,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 387857962155329295, guid: ba898410fdfe47a4a85d46c37a4fdbe2, type: 3}
+      propertyPath: cameraMovement
+      value: 
+      objectReference: {fileID: 1157595889}
     - target: {fileID: 1993554170873924565, guid: ba898410fdfe47a4a85d46c37a4fdbe2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.05
@@ -1294,6 +1298,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 498836240851895322, guid: 07273dc63c723c84ebc297bd63ca654e, type: 3}
+      propertyPath: cameraMovement
+      value: 
+      objectReference: {fileID: 1157595889}
     - target: {fileID: 1993554170873924565, guid: 07273dc63c723c84ebc297bd63ca654e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.28
