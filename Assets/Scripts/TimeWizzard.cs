@@ -147,15 +147,6 @@ public class TimeWizzard : MonoBehaviour
                 clocksThrown++;
                 var proj = Instantiate(clockProjectile);
 
-                if(proj.transform.position.x > player.transform.position.x)
-                {
-                    proj.transform.Rotate(0, 0, 50 * Time.deltaTime);
-                }
-                else
-                {
-                    proj.transform.Rotate(0, 0, 50 * Time.deltaTime);
-                }
-
                 proj.transform.position = new Vector3(transform.position.x, transform.position.y + 9, transform.position.z);
                 proj.SetActive(true);
                 Vector3 playerPos = player.transform.position;
