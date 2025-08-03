@@ -112,9 +112,11 @@ public class PlayerAttack : MonoBehaviour
         heavyHitbox.SetActive(true); 
         yield return new WaitForSeconds(0.3f); // Wait for the duration of the heavy attack
 
-        animator.SetBool("isHeavy", false);
-        heavyHitbox.SetActive(false);
         
+        heavyHitbox.SetActive(false);
+        animator.SetBool("isRunning", false); // Set running animation after heavy attack
+        yield return new WaitForSeconds(0.4f); // Wait for a short duration before resetting
+        animator.SetBool("isHeavy", false);
         isAttacking = false;
 
         
