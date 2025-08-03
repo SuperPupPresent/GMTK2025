@@ -12,6 +12,7 @@ public class GoonHealth : MonoBehaviour
     public float stunnedTime;
     public bool facingRight;
     float fallBackTime;
+    public bool fromSpawner = false; // If true, the goon is spawned by the spawner script
     public GameObject hitbox; //Attack from the goon
 
     float damageBuildup;
@@ -95,6 +96,11 @@ public class GoonHealth : MonoBehaviour
         audioSource.Play(); // plays death sound
 
         yield return new WaitForSeconds(3f);
+        if (!fromSpawner)
+        {
+            Destroy(gameObject);
+        }
+
 
     }
 
