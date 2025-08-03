@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
             initiateJump();
         }
 
-        validateJump();
+        
 
         //record position with timestamp
         float now = Time.time;
@@ -88,6 +88,11 @@ public class PlayerMovement : MonoBehaviour
         {
             positionHistory.Dequeue();
         }
+    }
+
+    void FixedUpdate()
+    {
+        validateJump();
     }
 
     public List<Vector3> GetPositionsForRecall(float seconds)
@@ -183,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Debug.Log("SHEVA");
             PlayerRb.transform.localPosition = new Vector3(0, (Mathf.Pow(maxHeight, 2f) - Mathf.Pow(jumpSpeed, 2f)), 0);
-            jumpSpeed += travelSpeed;
+            jumpSpeed += travelSpeed * 5;
             //Debug.Log(jumpSpeed);
 
             if (jumpSpeed >= 0)
