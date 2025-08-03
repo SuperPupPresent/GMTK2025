@@ -23,6 +23,7 @@ public class TimeWizzard : MonoBehaviour
     public int currentNumberOfRotations;
 
     [SerializeField] float dashSpeed = 10;
+    [SerializeField] float projSpeed = 5;
 
     [SerializeField] float moveSpeed, radius;
     float angle;
@@ -61,7 +62,7 @@ public class TimeWizzard : MonoBehaviour
         }
 
         //
-        Debug.Log(currentNumberOfRotations);
+        //Debug.Log(currentNumberOfRotations);
         //animator.SetBool("startDash", true);
     }
 
@@ -145,7 +146,25 @@ public class TimeWizzard : MonoBehaviour
                 animator.SetBool("clockThrow", false);
                 clocksThrown++;
                 var proj = Instantiate(clockProjectile);
+
+                if(proj.transform.position.x > player.transform.position.x)
+                {
+                    proj.transform.Rotate(0, 0, 50 * Time.deltaTime);
+                }
+                else
+                {
+                    proj.transform.Rotate(0, 0, 50 * Time.deltaTime);
+                }
+
+                proj.transform.position = new Vector3(transform.position.x, transform.position.y + 9, transform.position.z);
                 proj.SetActive(true);
+                Vector3 playerPos = player.transform.position;
+                Vector3 projPos = proj.transform.position;
+
+                Vector2 launchSpeed = new Vector2(projPos.x - playerPos.x, projPos.y - playerPos.y);
+                launchSpeed.Normalize();
+                proj.GetComponent<Rigidbody2D>().linearVelocity = -projSpeed * launchSpeed;
+                
                 isThrown = false;
             }
 
