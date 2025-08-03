@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.54509807}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -477,6 +477,10 @@ PrefabInstance:
       propertyPath: ParentRb
       value: 
       objectReference: {fileID: 6079260707114093848}
+    - target: {fileID: 4974034024705549225, guid: 2e9c5afc1ee1c2240bb29cb5bae0c862, type: 3}
+      propertyPath: groundLimit
+      value: -1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4974034024705549225, guid: 2e9c5afc1ee1c2240bb29cb5bae0c862, type: 3}
       propertyPath: cameraObject
       value: 

@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int moveSpeed = 5;
     [SerializeField] float travelSpeed = .5f;
     [SerializeField] float maxHeight = 5f;
+    [SerializeField] float groundLimit = 1.5f; // The height at which the player is considered to be on the ground
      // Among us
     private bool facingRight = true;
     private bool isJumping = false;
@@ -107,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("isRunning", true);
             //Top of screen
-            if (ParentRb.transform.position.y >= 2)
+            if (ParentRb.transform.position.y >= groundLimit)
             {
                 ParentRb.linearVelocityY = Mathf.Clamp(moveAmt.y * moveSpeed, -moveSpeed, 0);
                 //ParentRb.linearVelocityX = (moveAmt.x * moveSpeed);

@@ -64,6 +64,11 @@ public class GoonSpawner : MonoBehaviour
             goon3.SetActive(true);
             goon4.SetActive(true);
 
+            goon1.GetComponent<GoonHealth>().fromSpawner = true;
+            goon2.GetComponent<GoonHealth>().fromSpawner = true;
+            goon3.GetComponent<GoonHealth>().fromSpawner = true;
+            goon4.GetComponent<GoonHealth>().fromSpawner = true;
+
         }
         //if there is a wave 2 and all enemies in wave 1 are dead, activate wave 2
         if (wave2 && goon1.GetComponent<GoonHealth>().dead && goon2.GetComponent<GoonHealth>().dead && goon3.GetComponent<GoonHealth>().dead && goon4.GetComponent<GoonHealth>().dead)
@@ -74,6 +79,13 @@ public class GoonSpawner : MonoBehaviour
             goon8.SetActive(true);
             goon9.SetActive(true);
             goon10.SetActive(true);
+
+            goon5.GetComponent<GoonHealth>().fromSpawner = true;
+            goon6.GetComponent<GoonHealth>().fromSpawner = true;
+            goon7.GetComponent<GoonHealth>().fromSpawner = true;
+            goon8.GetComponent<GoonHealth>().fromSpawner = true;
+            goon9.GetComponent<GoonHealth>().fromSpawner = true;
+            goon10.GetComponent<GoonHealth>().fromSpawner = true;
         }
         //if there is a wave 3 and all enemies in wave 2 are dead, activate wave 3
         if (wave3 && goon5.GetComponent<GoonHealth>().dead && goon6.GetComponent<GoonHealth>().dead && goon7.GetComponent<GoonHealth>().dead && goon8.GetComponent<GoonHealth>().dead && goon9.GetComponent<GoonHealth>().dead && goon10.GetComponent<GoonHealth>().dead)
@@ -84,6 +96,13 @@ public class GoonSpawner : MonoBehaviour
             goon14.SetActive(true);
             goon15.SetActive(true);
             goon16.SetActive(true);
+
+            goon11.GetComponent<GoonHealth>().fromSpawner = true;
+            goon12.GetComponent<GoonHealth>().fromSpawner = true;
+            goon13.GetComponent<GoonHealth>().fromSpawner = true;
+            goon14.GetComponent<GoonHealth>().fromSpawner = true;
+            goon15.GetComponent<GoonHealth>().fromSpawner = true;
+            goon16.GetComponent<GoonHealth>().fromSpawner = true;
         }
 
 
