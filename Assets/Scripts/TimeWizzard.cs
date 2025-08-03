@@ -76,7 +76,7 @@ public class TimeWizzard : MonoBehaviour
             else
             {
                 // Debug.Log(currentAttack);
-                isHostile = true;
+                
                 if(currentAttack == 0)
                 {
                     clockThrow();
@@ -85,11 +85,13 @@ public class TimeWizzard : MonoBehaviour
                 else if(currentAttack == 1)
                 {
                     dashAttack();
+                    isHostile = true;
                 }
 
                 else if(currentAttack == 2)
                 {
                     envelope();
+                    isHostile = true;
                 }
             }
         }
