@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622843ebdddb9014bb16c99e2c15f8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 10
+  attackDamage: 20
 --- !u!1 &4138089712420133655
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +472,7 @@ MonoBehaviour:
   dead: 0
   stunnedTime: 0.2
   facingRight: 0
+  fromSpawner: 0
   hitbox: {fileID: 3759722248517119824}
   recoverTimeMultiplier: 2
   knockBackLimit: 50

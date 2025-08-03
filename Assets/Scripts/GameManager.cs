@@ -17,16 +17,22 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public float currentHealth;
     [HideInInspector] public float currentMana;
 
+    private AudioSource audioSource;
+    public AudioClip gameOverSound;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gameOverScreen.SetActive(false);
-        currentHealth = maxPlayerHealth - 40;
-        currentMana = maxPlayerMana - 40;
+        currentHealth = maxPlayerHealth;
+        currentMana = maxPlayerMana;
 
         healthBar.fillAmount = currentHealth / maxPlayerHealth;
         manaBar.fillAmount = currentMana / maxPlayerMana;
+        
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -77,7 +83,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         gameOverScreen.SetActive(true);
         //Play game over audio
-        yield return new WaitForSeconds(3f);
+        audioSource.pitch = 0.5f;
+        audioSource.PlayOneShot(gameOverSound, 0.05f);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Game");
     }
 }

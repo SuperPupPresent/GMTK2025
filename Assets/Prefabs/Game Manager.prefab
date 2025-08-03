@@ -54,6 +54,7 @@ MonoBehaviour:
   manaRegenRate: 2
   currentHealth: 0
   currentMana: 0
+  gameOverSound: {fileID: 8300000, guid: 23605fa9196ab0048b5b65092c41ee10, type: 3}
 --- !u!1001 &4797892341566549
 PrefabInstance:
   m_ObjectHideFlags: 0
