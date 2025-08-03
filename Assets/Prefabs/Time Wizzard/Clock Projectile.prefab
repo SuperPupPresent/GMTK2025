@@ -13,13 +13,14 @@ GameObject:
   - component: {fileID: -1871242116759728730}
   - component: {fileID: 4162248362480333091}
   - component: {fileID: 6714840017831939769}
+  - component: {fileID: 2072301735645193416}
   m_Layer: 0
   m_Name: Clock Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7087985727868159868
 Transform:
   m_ObjectHideFlags: 0
@@ -176,3 +177,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 20
+--- !u!114 &2072301735645193416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5249128328516580718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032f0f0c0ee70414c8d19b2e011f478f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

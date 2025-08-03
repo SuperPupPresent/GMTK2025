@@ -50,8 +50,11 @@ MonoBehaviour:
   animator: {fileID: 2531132605593559423}
   rb: {fileID: 2333504905589956964}
   player: {fileID: 0}
-  currentNumberOfRotations: 0
+  clockProjectile: {fileID: 0}
+  timeAreana: {fileID: 0}
+  currentNumberOfRotations: 67
   dashSpeed: 6
+  projSpeed: 15
   moveSpeed: 1
   radius: 11
 --- !u!50 &2333504905589956964

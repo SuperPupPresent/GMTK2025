@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMovement: {fileID: 0}
-  boss: {fileID: 0}
+  boss: {fileID: 1316905729415969652}
   stars1: {fileID: 0}
   stars2: {fileID: 0}
   bossSpawned: 0
@@ -299,11 +299,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 952883295028348689, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6765445
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 952883295028348689, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0748883
+      value: 2.38
       objectReference: {fileID: 0}
     - target: {fileID: 952883295028348689, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
       propertyPath: m_LocalPosition.z
@@ -337,11 +337,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4057172054770217150, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
+      propertyPath: timeAreana
+      value: 
+      objectReference: {fileID: 4389194394595573640}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
+--- !u!1 &1316905729415969652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8433519928234451397, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
+  m_PrefabInstance: {fileID: 7444300073662700209}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7671359934977924512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 952883295028348689, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
