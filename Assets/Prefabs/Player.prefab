@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bb43cf10054724f90a4b6a7e312dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 30
+  attackDamage: 55
 --- !u!1 &2677520519543132282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,7 +1009,10 @@ MonoBehaviour:
   moveSpeed: 5
   travelSpeed: 0.015
   maxHeight: 2
+  groundLimit: 1.5
+  cameraRadius: 0
   playerContainer: {fileID: 0}
+  playerBottomLimit: 0
 --- !u!114 &8397697133303183456
 MonoBehaviour:
   m_ObjectHideFlags: 0

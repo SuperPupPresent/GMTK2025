@@ -260,8 +260,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 8284341082420833476}
+  zoom: 0
   lockHorizontal: 0
   smoothSpeed: 5
+  zoomSpeed: 2
+  zoomSize: 12
 --- !u!1 &7117556742233404087
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +757,10 @@ PrefabInstance:
     - target: {fileID: 2715385090703226634, guid: 2e9c5afc1ee1c2240bb29cb5bae0c862, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447432074094525622, guid: 2e9c5afc1ee1c2240bb29cb5bae0c862, type: 3}
+      propertyPath: attackDamage
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 4974034024705549225, guid: 2e9c5afc1ee1c2240bb29cb5bae0c862, type: 3}
       propertyPath: ParentRb
