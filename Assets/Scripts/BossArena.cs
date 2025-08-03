@@ -13,6 +13,7 @@ public class BossArena : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip bossMusic;
     public AudioClip baseMusic;
+    PlayerMovement playerMovement;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -51,6 +52,9 @@ public class BossArena : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
+            playerMovement.playerBottomLimit = -12;
+            playerMovement.cameraRadius = 20;
             boss.SetActive(true);
             bossSpawned = true;
             //activate the stars
