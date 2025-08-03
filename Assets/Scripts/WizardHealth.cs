@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WizardHealth : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class WizardHealth : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip deathSound;
     public AudioClip hurtSound;
+    public Image healthBar;
 
     void Start()
     {
@@ -40,6 +42,7 @@ public class WizardHealth : MonoBehaviour
     public void takeDamage(int damage)
     {
         currentHealth -= damage;
+        healthBar.fillAmount = currentHealth/maxEnemyHealth;
         if (currentHealth <= 0 && !dead)
         {
             StartCoroutine(Dead());

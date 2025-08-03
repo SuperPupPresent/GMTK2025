@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerHitbox : MonoBehaviour
 {
     GoonHealth goonHealth;
+    WizardHealth wizardHealth;
     [SerializeField] int attackDamage;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -12,6 +13,11 @@ public class PlayerHitbox : MonoBehaviour
         {
             goonHealth = collision.gameObject.GetComponent<GoonHealth>();
             goonHealth.takeDamage(attackDamage);
+        }
+        if (collision.gameObject.tag == "WizardHurtbox")
+        {
+            wizardHealth = collision.gameObject.GetComponentInParent<WizardHealth>();
+            wizardHealth.takeDamage(attackDamage);
         }
     }
 }

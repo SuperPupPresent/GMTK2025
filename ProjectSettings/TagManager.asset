@@ -15,6 +15,7 @@ TagManager:
   - GoonSpawner
   - TimeWizzard
   - WizzardTrigger
+  - WizardHurtbox
   layers:
   - Default
   - TransparentFX
