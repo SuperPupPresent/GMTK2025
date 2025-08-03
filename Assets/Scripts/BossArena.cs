@@ -5,6 +5,8 @@ public class BossArena : MonoBehaviour
 
     public CameraMovement cameraMovement;
     public GameObject boss;
+    public StarMovement stars1;
+    public StarMovement stars2;
 
     public bool bossSpawned = false;
 
@@ -51,7 +53,10 @@ public class BossArena : MonoBehaviour
         {
             boss.SetActive(true);
             bossSpawned = true;
-
+            //activate the stars
+            stars1.isActive = true;
+            stars2.isActive = true;
+            //lock the camera movement
             cameraMovement.lockHorizontal = true;
             //zoom out the camera
             cameraMovement.ZoomOut();
