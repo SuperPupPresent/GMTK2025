@@ -29,13 +29,15 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private bool isJumping = false;
     private float jumpSpeed;
-    private float cameraRadius;
+    public float cameraRadius;
     private Transform CameraTransform;
 
     //Vishnu Recall Stuff
     private Queue<(Vector3 position, float time)> positionHistory = new(); // position queue
     private float positionRecordDuration = 2.1f; // recall duration
     public GameObject playerContainer; // reference to container used for recall
+
+    public float playerBottomLimit;
 
     private void OnEnable()
     {
@@ -59,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         cameraRadius = cameraObject.GetComponent<Camera>().orthographicSize * cameraObject.GetComponent<Camera>().aspect;
         CameraTransform = cameraObject.GetComponent<Transform>();
         health = GetComponent<PlayerHealth>();
+        playerBottomLimit = -6.5f;
     }
 
     // Update is called once per frame
@@ -115,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
 
             }
             //Botton of screen
-            else if (ParentRb.transform.position.y <= -6.5)
+            else if (ParentRb.transform.position.y <= playerBottomLimit)
             {
                 ParentRb.linearVelocityY = Mathf.Clamp(moveAmt.y * moveSpeed, 0, moveSpeed);
                 //ParentRb.linearVelocityX = (moveAmt.x * moveSpeed);
