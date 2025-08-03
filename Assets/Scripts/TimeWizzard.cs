@@ -8,6 +8,10 @@ public class TimeWizzard : MonoBehaviour
     public GameObject clockProjectile;
     public Transform timeAreana;
 
+    private AudioSource audioSource;
+    public AudioClip clockToss;
+    public AudioClip dashSound;
+
     public bool isHostile;
 
     private int currentDash = 0;
@@ -39,6 +43,7 @@ public class TimeWizzard : MonoBehaviour
     void Start()
     {
         desiredNumberOfRotations = Random.Range(4,6);
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -116,11 +121,13 @@ public class TimeWizzard : MonoBehaviour
             startingPosition = transform.position;
             currentDash = 1;
             isBegining = false;
+
         }
         
 
         if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
         {
+
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("dashReset") && checkingState)
             {
                 playerStartingPosition = player.position;
@@ -131,7 +138,13 @@ public class TimeWizzard : MonoBehaviour
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("continueDash") || animator.GetCurrentAnimatorStateInfo(0).IsName("dashStart"))
             {
+                audioSource.volume = 0.5f;
+                audioSource.pitch = 1.0f;
+                audioSource.clip = dashSound;
+                audioSource.Play();
+
                 clockDash();
+
             }
             
         }
@@ -178,6 +191,10 @@ public class TimeWizzard : MonoBehaviour
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("clockThrow") && isThrown)
             {
                 Debug.Log("THROWING CLOCK");
+                audioSource.pitch = 0.45f;
+                audioSource.volume = 1.0f;
+                audioSource.clip = clockToss;
+                audioSource.Play();
                 animator.SetBool("clockThrow", false);
                 clocksThrown++;
                 var proj = Instantiate(clockProjectile);
@@ -240,6 +257,7 @@ public class TimeWizzard : MonoBehaviour
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("startEnvelope"))
             {
                 animator.SetBool("startEnvelope", false);
+                audioSource.PlayOneShot(dashSound);
             }
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("envelopeAttack"))
             {

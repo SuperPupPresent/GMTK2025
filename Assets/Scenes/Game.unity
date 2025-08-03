@@ -243,7 +243,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1703345665085380108, guid: b3df831292dbe5c40bd3be3c8ebfa0a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 210
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1703345665085380108, guid: b3df831292dbe5c40bd3be3c8ebfa0a9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -761,9 +761,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1195530000}
     - target: {fileID: 1280920793929322967, guid: d6d9b53b934d28b408016c35f3e868b2, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1956391066}
+    - target: {fileID: 1280920793929322967, guid: d6d9b53b934d28b408016c35f3e868b2, type: 3}
       propertyPath: cameraMovement
       value: 
       objectReference: {fileID: 1157595889}
+    - target: {fileID: 2075259119483913083, guid: d6d9b53b934d28b408016c35f3e868b2, type: 3}
+      propertyPath: maxEnemyHealth
+      value: 2500
+      objectReference: {fileID: 0}
     - target: {fileID: 2824247597750950457, guid: d6d9b53b934d28b408016c35f3e868b2, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -2224,6 +2232,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3282590a191500f43956adeb157c6076, type: 3}
+--- !u!1 &1956391066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4594446743208236621, guid: d6d9b53b934d28b408016c35f3e868b2, type: 3}
+  m_PrefabInstance: {fileID: 838129273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2013289056
 PrefabInstance:
   m_ObjectHideFlags: 0

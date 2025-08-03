@@ -27,7 +27,7 @@ public class WizardHealth : MonoBehaviour
     public IEnumerator Dead()
     {
         dead = true;
-        enemyAnimator.SetBool("isDead", true);
+        enemyAnimator.SetBool("die", true);
 
         audioSource.clip = deathSound;
         audioSource.volume = 0.8f;

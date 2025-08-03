@@ -7,6 +7,7 @@ public class BossArena : MonoBehaviour
     public GameObject boss;
     public StarMovement stars1;
     public StarMovement stars2;
+    public GameObject healthBar;
 
     public bool bossSpawned = false;
 
@@ -19,6 +20,7 @@ public class BossArena : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        healthBar.SetActive(false);
         boss.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         audioSource.volume = 0.2f;
@@ -57,6 +59,7 @@ public class BossArena : MonoBehaviour
             playerMovement.cameraRadius = 20;
             boss.SetActive(true);
             bossSpawned = true;
+            healthBar.SetActive(true);
             //activate the stars
             stars1.isActive = true;
             stars2.isActive = true;

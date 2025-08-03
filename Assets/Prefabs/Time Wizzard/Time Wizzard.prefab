@@ -54,6 +54,8 @@ MonoBehaviour:
   player: {fileID: 0}
   clockProjectile: {fileID: 0}
   timeAreana: {fileID: 0}
+  clockToss: {fileID: 8300000, guid: 5387d88ae84c7914a92b6c085832ef9a, type: 3}
+  dashSound: {fileID: 8300000, guid: 75c08e998e11f3646807c898a5858f1f, type: 3}
   isHostile: 0
   currentNumberOfRotations: 67
   dashSpeed: 6
