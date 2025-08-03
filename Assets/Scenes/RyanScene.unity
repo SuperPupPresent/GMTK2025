@@ -206,6 +206,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &680761669 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7512146205638027388, guid: b3df831292dbe5c40bd3be3c8ebfa0a9, type: 3}
+  m_PrefabInstance: {fileID: 2382735104819807072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &1427105311 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 2333504905589956964, guid: 5fa9d4e8f109e954aae935c0b2097e65, type: 3}
@@ -345,13 +350,29 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 1427105311}
+    - target: {fileID: 5661824108050860100, guid: 5fa9d4e8f109e954aae935c0b2097e65, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 680761669}
+    - target: {fileID: 5661824108050860100, guid: 5fa9d4e8f109e954aae935c0b2097e65, type: 3}
+      propertyPath: radius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661824108050860100, guid: 5fa9d4e8f109e954aae935c0b2097e65, type: 3}
+      propertyPath: dashSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661824108050860100, guid: 5fa9d4e8f109e954aae935c0b2097e65, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8629461948749200556, guid: 5fa9d4e8f109e954aae935c0b2097e65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.18
+      value: 16.62
       objectReference: {fileID: 0}
     - target: {fileID: 8629461948749200556, guid: 5fa9d4e8f109e954aae935c0b2097e65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.72
+      value: -3.63
       objectReference: {fileID: 0}
     - target: {fileID: 8629461948749200556, guid: 5fa9d4e8f109e954aae935c0b2097e65, type: 3}
       propertyPath: m_LocalPosition.z
@@ -441,6 +462,10 @@ PrefabInstance:
     - target: {fileID: 3896617212890157660, guid: b3df831292dbe5c40bd3be3c8ebfa0a9, type: 3}
       propertyPath: m_Name
       value: Game Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876338594491254877, guid: b3df831292dbe5c40bd3be3c8ebfa0a9, type: 3}
+      propertyPath: orthographic size
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

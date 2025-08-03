@@ -47,6 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2531132605593559423}
+  rb: {fileID: 2333504905589956964}
+  player: {fileID: 0}
+  dashSpeed: 6
+  moveSpeed: 1
+  radius: 11
 --- !u!50 &2333504905589956964
 Rigidbody2D:
   serializedVersion: 5
@@ -55,7 +60,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276635796536203583}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
