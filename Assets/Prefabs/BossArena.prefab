@@ -99,6 +99,7 @@ MonoBehaviour:
   boss: {fileID: 1316905729415969652}
   stars1: {fileID: 0}
   stars2: {fileID: 0}
+  healthBar: {fileID: 4594446743208236621}
   bossSpawned: 0
   bossMusic: {fileID: 8300000, guid: 6e9f93b6c8695e04d8a2f93aec5d1148, type: 3}
   baseMusic: {fileID: 8300000, guid: 2ee4ef9e9c6731f4ab17e308eb6a3788, type: 3}
@@ -409,10 +410,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimeWizzardContainer
       objectReference: {fileID: 0}
-    - target: {fileID: 194574424442573434, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
-      propertyPath: turtleAnimator
-      value: 
-      objectReference: {fileID: 8620944175638292532}
     - target: {fileID: 952883295028348689, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.47
@@ -453,58 +450,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2429127379530199343, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2811803868293049752, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2820086537938359175, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3214422175385937534, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4057172054770217150, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
       propertyPath: timeAreana
       value: 
       objectReference: {fileID: 4389194394595573640}
-    - target: {fileID: 4251268762321605777, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4647373158073385096, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6062311468955839113, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
-      propertyPath: m_TagString
-      value: WizardHurtbox
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349582651074288633, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6622628788393242367, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 468.06693
-      objectReference: {fileID: 0}
-    - target: {fileID: 7416887623611200553, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8810228266560576610, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
-      propertyPath: m_TagString
-      value: WizardHurtbox
-      objectReference: {fileID: 0}
-    - target: {fileID: 8900162163884087754, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
-      propertyPath: maxEnemyHealth
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 8900162163884087754, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
       propertyPath: turtleAnimator
       value: 
@@ -517,6 +466,11 @@ PrefabInstance:
 --- !u!1 &1316905729415969652 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8433519928234451397, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
+  m_PrefabInstance: {fileID: 7444300073662700209}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4594446743208236621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6380958014961405180, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
   m_PrefabInstance: {fileID: 7444300073662700209}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7671359934977924512 stripped

@@ -308,6 +308,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4741842276671470611, guid: 6569f8267cbf6ed4c985d6f25d4a7519, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 468.06693
+      objectReference: {fileID: 0}
     - target: {fileID: 4804094127395184144, guid: 6569f8267cbf6ed4c985d6f25d4a7519, type: 3}
       propertyPath: m_Name
       value: WizardCanvas

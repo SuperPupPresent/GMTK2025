@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf240a43c6fdaf408355cd1812c1b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemyHealth: 5000
+  maxEnemyHealth: 2000
   currentHealth: 0
   dead: 0
   enemyAnimator: {fileID: 2531132605593559423}
@@ -454,7 +454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6724470107796714755, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
       propertyPath: m_TagString
-      value: TimeWizzard
+      value: WizardHurtbox
       objectReference: {fileID: 0}
     - target: {fileID: 6725575266271996171, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
       propertyPath: m_TagString
@@ -470,7 +470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8302247547454735336, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
       propertyPath: m_TagString
-      value: TimeWizzard
+      value: WizardHurtbox
       objectReference: {fileID: 0}
     - target: {fileID: 8510260391603404968, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
       propertyPath: m_TagString
@@ -571,7 +571,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -660,7 +660,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -749,7 +749,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -854,7 +854,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -933,7 +933,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1023,7 +1023,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1099,7 +1099,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1216,7 +1216,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
