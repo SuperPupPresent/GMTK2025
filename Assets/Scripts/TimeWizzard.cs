@@ -22,6 +22,10 @@ public class TimeWizzard : MonoBehaviour
     private int desiredNumberOfRotations;
     public int currentNumberOfRotations;
 
+    private int currentAttack = 2;
+
+    private bool isEnvelope;
+
     [SerializeField] float dashSpeed = 10;
     [SerializeField] float projSpeed = 5;
 
@@ -31,7 +35,7 @@ public class TimeWizzard : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        desiredNumberOfRotations = Random.Range(4,5);
+        desiredNumberOfRotations = Random.Range(4,6);
 
     }
 
@@ -42,18 +46,43 @@ public class TimeWizzard : MonoBehaviour
         
         if (currentNumberOfRotations >= desiredNumberOfRotations)
         {
-            //dashAttack();
-            
 
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("idle") && finishedAttack)
             {
                 currentNumberOfRotations = 0;
                 finishedAttack = false;
+                isBegining = true;
+                if(currentAttack == 2)
+                
+                {
+                    currentAttack = 0;
+                }
+                else
+                {
+                    currentAttack++;
+                }
+                animator.SetBool("finishDash", false);
+                animator.SetBool("FinishThrow", false);
 
             }
             else
             {
-                clockThrow();
+               // Debug.Log(currentAttack);
+                
+                if(currentAttack == 0)
+                {
+                    clockThrow();
+                }
+                
+                else if(currentAttack == 1)
+                {
+                    dashAttack();
+                }
+
+                else if(currentAttack == 2)
+                {
+                    envelope();
+                }
             }
         }
         else
@@ -77,11 +106,12 @@ public class TimeWizzard : MonoBehaviour
     void dashAttack()
     {
         
-        if(currentDash == 0)
+        if(currentDash == 0 && isBegining)
         {
             animator.SetBool("startDash", true);
             startingPosition = transform.position;
             currentDash = 1;
+            isBegining = false;
         }
         
 
@@ -114,9 +144,10 @@ public class TimeWizzard : MonoBehaviour
             checkingState = true;
             rb.linearVelocity = new Vector2(0, 0);
 
-            if (currentDash >= 3)
+            if (currentDash >= 2)
             {
                 animator.SetBool("finishDash", true);
+                animator.SetBool("startDash", false);
                 finishedAttack = true;
             }
             else
@@ -168,7 +199,7 @@ public class TimeWizzard : MonoBehaviour
                     animator.SetBool("clockThrow", false);
                     finishedAttack = true;
                     clocksThrown = 0;
-                    //isThrown = false;
+                    isThrown = false;
                 }
 
                 else
@@ -188,6 +219,35 @@ public class TimeWizzard : MonoBehaviour
 
         }
     }
+
+    void envelope()
+    {
+        if (isBegining)
+        {
+            isBegining = false;
+            animator.SetBool("startEnvelope", true);
+            animator.SetBool("endEnvelope", false);
+            transform.position = new Vector2(0, player.transform.position.y - 4);
+            isEnvelope = true;
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("startEnvelope"))
+            {
+                animator.SetBool("startEnvelope", false);
+            }
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("envelopeAttack"))
+            {
+                animator.SetBool("endEnvelope", true);
+                Debug.Log("in attack");
+                finishedAttack = true;
+                isEnvelope = false;
+            }
+        }
+
+    }
+
     void clockDash()
     {
         isDashing = true;
@@ -197,7 +257,7 @@ public class TimeWizzard : MonoBehaviour
 
     void facePlayer()
     {
-        if (!isDashing)
+        if (!isDashing || isEnvelope)
         {
             if (player.transform.position.x < transform.position.x)
             {
