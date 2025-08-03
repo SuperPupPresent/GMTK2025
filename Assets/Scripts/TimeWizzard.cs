@@ -17,9 +17,10 @@ public class TimeWizzard : MonoBehaviour
     
     private int clocksThrown;
     private bool isThrown;
+    private bool isBegining = true;
 
     private int desiredNumberOfRotations;
-    public int currentNumberOfRotations = 10;
+    public int currentNumberOfRotations;
 
     [SerializeField] float dashSpeed = 10;
 
@@ -41,12 +42,17 @@ public class TimeWizzard : MonoBehaviour
         if (currentNumberOfRotations >= desiredNumberOfRotations)
         {
             //dashAttack();
-            clockThrow();
+            
 
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("idle") && finishedAttack)
             {
                 currentNumberOfRotations = 0;
                 finishedAttack = false;
+
+            }
+            else
+            {
+                clockThrow();
             }
         }
         else
@@ -123,32 +129,52 @@ public class TimeWizzard : MonoBehaviour
 
     void clockThrow()
     {
-        Debug.Log(clocksThrown);
-        if(clocksThrown == 0)
+        //Debug.Log(clocksThrown);
+        if(clocksThrown == 0 && !isThrown && isBegining)
         {
             animator.SetBool("clockThrow", true);
+            isThrown = true;
+            isBegining = false;
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
         {
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("clockThrow"))
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("clockThrow") && isThrown)
             {
+                Debug.Log("THROWING CLOCK");
                 animator.SetBool("clockThrow", false);
+                clocksThrown++;
+                var proj = Instantiate(clockProjectile);
+                proj.SetActive(true);
+                isThrown = false;
             }
 
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("clockThrowIdle") && !animator.GetBool("FinishThrow"))
             {
-                clocksThrown++;
-                var proj = Instantiate(clockProjectile);
-                proj.SetActive(true);
-                animator.SetBool("clockThrow", true);
-
+                
                 if(clocksThrown >= 3)
                 {
                     animator.SetBool("FinishThrow", true);
+                    animator.SetBool("clockThrow", false);
+                    finishedAttack = true;
+                    clocksThrown = 0;
+                    //isThrown = false;
+                }
+
+                else
+                {
+                    animator.SetBool("clockThrow", true);
+                    isThrown = true;
                 }
             }
 
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+            {
+                clocksThrown = 0;
+                isThrown = false;
+                isBegining = true;
+                animator.SetBool("FinishThrow", false);
+            }
 
         }
     }

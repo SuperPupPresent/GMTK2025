@@ -390,6 +390,10 @@ PrefabInstance:
       propertyPath: clockProjectile
       value: 
       objectReference: {fileID: 4827637018227113239}
+    - target: {fileID: 4057172054770217150, guid: d059f60f33ab98441966d780a18e9a31, type: 3}
+      propertyPath: currentNumberOfRotations
+      value: 67
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
