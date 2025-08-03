@@ -238,13 +238,6 @@ public class PlayerAttack : MonoBehaviour
             StartCoroutine(PerformRecall());
         }
 
-        // Check for grab input
-        if (grab.WasPressedThisFrame())
-        {
-            //Debug.Log("Grab Triggered");
-            // Implement grab logic here
-        }
-
         // Check for block input
         if (block.IsPressed())
         {

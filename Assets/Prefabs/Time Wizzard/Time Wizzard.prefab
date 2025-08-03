@@ -54,6 +54,7 @@ MonoBehaviour:
   player: {fileID: 0}
   clockProjectile: {fileID: 0}
   timeAreana: {fileID: 0}
+  isHostile: 0
   currentNumberOfRotations: 67
   dashSpeed: 6
   projSpeed: 15
@@ -487,27 +488,51 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4607305558026701872, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3936680677650692210}
+    - targetCorrespondingSourceObject: {fileID: -4607305558026701872, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 530808670393910173}
     - targetCorrespondingSourceObject: {fileID: 8510260391603404968, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1166780319998872787}
+    - targetCorrespondingSourceObject: {fileID: 8510260391603404968, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2828833310321982414}
     - targetCorrespondingSourceObject: {fileID: 5745409749479450879, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5898211121236022626}
+    - targetCorrespondingSourceObject: {fileID: 5745409749479450879, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4118358751167039901}
     - targetCorrespondingSourceObject: {fileID: -8155496017376447211, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6504539865963650692}
+    - targetCorrespondingSourceObject: {fileID: -8155496017376447211, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7683325722489644082}
     - targetCorrespondingSourceObject: {fileID: 8302247547454735336, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3368992396651078403}
+    - targetCorrespondingSourceObject: {fileID: 8302247547454735336, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3604281374034697409}
     - targetCorrespondingSourceObject: {fileID: 9202286772897935925, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5908118771893562237}
+    - targetCorrespondingSourceObject: {fileID: 9202286772897935925, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3846062178656562628}
     - targetCorrespondingSourceObject: {fileID: 6725575266271996171, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6299076830841768405}
+    - targetCorrespondingSourceObject: {fileID: 6725575266271996171, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3108091537967445741}
     - targetCorrespondingSourceObject: {fileID: 6724470107796714755, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5485565842844413035}
+    - targetCorrespondingSourceObject: {fileID: 6724470107796714755, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6058124393166971092}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
 --- !u!1 &908346781066585240 stripped
 GameObject:
@@ -584,6 +609,20 @@ PolygonCollider2D:
       - {x: 1.8, y: -0.74}
       - {x: 1.76, y: 0.17999999}
   m_UseDelaunayMesh: 0
+--- !u!114 &6058124393166971092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908346781066585240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a928d08717b06ef4cbe3f633c4ce58de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 5
+  script: {fileID: 5661824108050860100}
 --- !u!1 &909461493616539792 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6725575266271996171, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
@@ -659,6 +698,20 @@ PolygonCollider2D:
       - {x: 1.15, y: -3.07}
       - {x: 0.9826251, y: -2.987446}
   m_UseDelaunayMesh: 0
+--- !u!114 &3108091537967445741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909461493616539792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a928d08717b06ef4cbe3f633c4ce58de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 5
+  script: {fileID: 5661824108050860100}
 --- !u!1 &1280875502592189003 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4607305558026701872, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
@@ -750,6 +803,20 @@ PolygonCollider2D:
       - {x: 1.0321312, y: -1.1070094}
       - {x: 1.2292585, y: -0.97148365}
   m_UseDelaunayMesh: 0
+--- !u!114 &530808670393910173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280875502592189003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a928d08717b06ef4cbe3f633c4ce58de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 5
+  script: {fileID: 5661824108050860100}
 --- !u!1 &2194043296159545700 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5745409749479450879, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
@@ -815,6 +882,20 @@ PolygonCollider2D:
       - {x: 0.5622765, y: 0.067436144}
       - {x: 0.4105707, y: 0.9451428}
   m_UseDelaunayMesh: 0
+--- !u!114 &4118358751167039901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2194043296159545700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a928d08717b06ef4cbe3f633c4ce58de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 5
+  script: {fileID: 5661824108050860100}
 --- !u!1 &2521601631402234483 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8302247547454735336, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
@@ -891,6 +972,20 @@ PolygonCollider2D:
       - {x: 1.4067448, y: -2.6328385}
       - {x: 1.7693489, y: -2.1773958}
   m_UseDelaunayMesh: 0
+--- !u!114 &3604281374034697409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2521601631402234483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a928d08717b06ef4cbe3f633c4ce58de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 5
+  script: {fileID: 5661824108050860100}
 --- !u!1 &2869780077052842291 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8510260391603404968, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
@@ -953,6 +1048,20 @@ PolygonCollider2D:
       - {x: 0.39577305, y: 0.2991321}
       - {x: 0.6449064, y: 0.8710563}
   m_UseDelaunayMesh: 0
+--- !u!114 &2828833310321982414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2869780077052842291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a928d08717b06ef4cbe3f633c4ce58de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 5
+  script: {fileID: 5661824108050860100}
 --- !u!1 &3349572472360412078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9202286772897935925, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
@@ -1024,6 +1133,20 @@ PolygonCollider2D:
       - {x: 1.11, y: -2.86}
       - {x: 1.0665747, y: -2.2691464}
   m_UseDelaunayMesh: 0
+--- !u!114 &3846062178656562628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349572472360412078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a928d08717b06ef4cbe3f633c4ce58de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 5
+  script: {fileID: 5661824108050860100}
 --- !u!4 &5109003312833144901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: d63df507af350824bbf2ad04e963b96f, type: 3}
@@ -1127,3 +1250,17 @@ PolygonCollider2D:
       - {x: -0.94, y: -0.82}
       - {x: -1.02, y: -0.9}
   m_UseDelaunayMesh: 0
+--- !u!114 &7683325722489644082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6852471947541521550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a928d08717b06ef4cbe3f633c4ce58de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 5
+  script: {fileID: 5661824108050860100}

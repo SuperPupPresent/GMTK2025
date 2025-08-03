@@ -8,6 +8,8 @@ public class TimeWizzard : MonoBehaviour
     public GameObject clockProjectile;
     public Transform timeAreana;
 
+    public bool isHostile;
+
     private int currentDash = 0;
     private bool checkingState = true;
     private bool finishedAttack = false;
@@ -68,8 +70,8 @@ public class TimeWizzard : MonoBehaviour
             }
             else
             {
-               // Debug.Log(currentAttack);
-                
+                // Debug.Log(currentAttack);
+                isHostile = true;
                 if(currentAttack == 0)
                 {
                     clockThrow();
@@ -88,6 +90,7 @@ public class TimeWizzard : MonoBehaviour
         }
         else
         {
+            isHostile = false;
             standardMovement();
         }
 

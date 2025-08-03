@@ -18,7 +18,7 @@ public class StarMovement : MonoBehaviour
         if (isActive){
             float newX = transform.position.x + -moveSpeed * Time.deltaTime;
             transform.position = new Vector2(newX, transform.position.y);
-            Debug.Log(transform.localPosition.x);
+            //Debug.Log(transform.localPosition.x);
             if (transform.localPosition.x < -outOfBound)
             {
                 transform.localPosition = new Vector2(outOfBound, transform.localPosition.y);
